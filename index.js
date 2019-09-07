@@ -3,12 +3,15 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View,Environment, staticAssetURL
+  View,
+  Environment, 
+  staticAssetURL,
+  VrButton
 } from 'react-360';
 import VideoModule from 'VideoModule';
 
-const player = VideoModule.createPlayer('myPlayer');
-player.play({ source: {url: staticAssetURL('video.mp4')}, stereo: '2D' });
+VideoModule.createPlayer('myPlayer');
+VideoModule.play('myPlayer', { source: { url: staticAssetURL('video.mp4') }, stereo: '2D' });
 
 
 export default class Hackathon_CommunityChallenge_2019 extends React.Component {
@@ -19,14 +22,34 @@ export default class Hackathon_CommunityChallenge_2019 extends React.Component {
     Environment.setBackgroundVideo('myPlayer');
   }
 
+  clickBotao() {
+    VideoModule.play('myPlayer', { source: { url: staticAssetURL('video2.mp4') }, stereo: '2D' });
+    Environment.setBackgroundVideo('myPlayer');
+  }
+
+  clickBotaoStop() {
+    VideoModule.stop('myPlayer');
+  }
+
+  clickBotaoPlay() {
+    VideoModule.play('myPlayer', { source: { url: staticAssetURL('video.mp4') }, stereo: '2D' });
+    Environment.setBackgroundVideo('myPlayer');
+  }
+
   render() {
     return (
       <View style={styles.panel}>
-        <View style={styles.greetingBox}>
-          <Text style={styles.greeting}>
-            Welcome to React 360
-          </Text>
-        </View>
+          <VrButton onClick={() => { this.clickBotao() }} style={styles.greetingBox}>
+            <Text style={styles.greeting}>Video 2</Text>
+          </VrButton>
+
+          <VrButton onClick={() => { this.clickBotaoStop() }} style={styles.greetingBox}>
+            <Text style={styles.greeting}>Stop</Text>
+          </VrButton>
+
+          <VrButton onClick={() => { this.clickBotaoPlay() }} style={styles.greetingBox}>
+            <Text style={styles.greeting}>Play</Text>
+          </VrButton>
       </View>
     );
   }
@@ -48,6 +71,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     borderColor: '#639dda',
     borderWidth: 2,
+    margin: '5px',
   },
   greeting: {
     fontSize: 30,
