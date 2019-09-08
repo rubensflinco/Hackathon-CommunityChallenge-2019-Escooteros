@@ -27,13 +27,12 @@ export default class Hackathon_CommunityChallenge_2019 extends React.Component {
     Environment.setBackgroundVideo('myPlayer');
   }
 
-  clickBotaoStop() {
-    VideoModule.stop('myPlayer');
+  clickBotaoPause() {
+    VideoModule.pause('myPlayer');
   }
 
-  clickBotaoPlay() {
-    VideoModule.play('myPlayer', { source: { url: staticAssetURL('video.mp4') }, stereo: '2D' });
-    Environment.setBackgroundVideo('myPlayer');
+  clickBotaoResume() {
+    VideoModule.resume('myPlayer');
   }
 
   render() {
@@ -43,12 +42,12 @@ export default class Hackathon_CommunityChallenge_2019 extends React.Component {
             <Text style={styles.greeting}>Video 2</Text>
           </VrButton>
 
-          <VrButton onClick={() => { this.clickBotaoStop() }} style={styles.greetingBox}>
-            <Text style={styles.greeting}>Stop</Text>
+          <VrButton onClick={() => { this.clickBotaoPause() }} style={styles.greetingBox}>
+            <Text style={styles.greeting}>Pause</Text>
           </VrButton>
 
-          <VrButton onClick={() => { this.clickBotaoPlay() }} style={styles.greetingBox}>
-            <Text style={styles.greeting}>Play</Text>
+          <VrButton onClick={() => { this.clickBotaoResume() }} style={styles.greetingBox}>
+            <Text style={styles.greeting}>Resume</Text>
           </VrButton>
       </View>
     );
