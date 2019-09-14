@@ -3,4 +3,8 @@
 *.log
 *.js.meta
 node_modules/
+static_assets/videos/
+static_assets/editar/
+build/static_assets/videos/
+build/static_assets/editar/
 # build/

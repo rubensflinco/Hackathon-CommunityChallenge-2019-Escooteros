@@ -1,80 +1,65 @@
 import React from 'react';
 import {
   AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  Environment, 
-  staticAssetURL,
-  VrButton
 } from 'react-360';
-import VideoModule from 'VideoModule';
+import 'localstorage-polyfill';
+import ScreenInicio from './src/screen/inicio';
+import ScreenCarregando from './src/screen/carregando';
+import ScreenJogando from './src/screen/jogando';
 
-VideoModule.createPlayer('myPlayer');
-VideoModule.play('myPlayer', { source: { url: staticAssetURL('video.mp4') }, stereo: '2D' });
+// VideoModule.createPlayer('myPlayer');
+// VideoModule.play('myPlayer', { source: { url: staticAssetURL('video.mp4') }, stereo: '2D' });
 
 
 export default class Hackathon_CommunityChallenge_2019 extends React.Component {
 
-  
-  // inside class component
+  constructor(props) {
+    super(props);
+    this.state = {
+      carregado: false,
+      jogando: "false"
+    }
+  }
+
+  componentWillMount(){
+    global.localStorage.setItem("jogando", false);
+  }
+
   componentDidMount() {
-    Environment.setBackgroundVideo('myPlayer');
-  }
+    // Environment.setBackgroundVideo('myPlayer');
 
-  clickBotao() {
-    VideoModule.play('myPlayer', { source: { url: staticAssetURL('video2.mp4') }, stereo: '2D' });
-    Environment.setBackgroundVideo('myPlayer');
-  }
+    // Responsavel por loop de verificação para mudar tela de inicio para jogando
+    setInterval(()=>{
+      this.setState({
+        jogando: global.localStorage.getItem("jogando")
+      });
+    },1000)
 
-  clickBotaoPause() {
-    VideoModule.pause('myPlayer');
-  }
-
-  clickBotaoResume() {
-    VideoModule.resume('myPlayer');
+    this.setState({
+      carregado: true
+    });
   }
 
   render() {
-    return (
-      <View style={styles.panel}>
-          <VrButton onClick={() => { this.clickBotao() }} style={styles.greetingBox}>
-            <Text style={styles.greeting}>Video 2</Text>
-          </VrButton>
+    if (this.state.carregado == true) {
+      if (this.state.jogando == "false") {
+        return (
+          <ScreenInicio></ScreenInicio>
+        );
+      } else {
+        return (
+          <ScreenJogando></ScreenJogando>
+        );
+      }
 
-          <VrButton onClick={() => { this.clickBotaoPause() }} style={styles.greetingBox}>
-            <Text style={styles.greeting}>Pause</Text>
-          </VrButton>
-
-          <VrButton onClick={() => { this.clickBotaoResume() }} style={styles.greetingBox}>
-            <Text style={styles.greeting}>Resume</Text>
-          </VrButton>
-      </View>
-    );
+    } else {
+      return (
+        <ScreenCarregando></ScreenCarregando>
+      );
+    }
   }
 
 
 };
-
-const styles = StyleSheet.create({
-  panel: {
-    // Fill the entire surface
-    width: 1000,
-    height: 600,
-    backgroundColor: 'rgba(255, 255, 255, 0.4)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  greetingBox: {
-    padding: 20,
-    backgroundColor: '#000000',
-    borderColor: '#639dda',
-    borderWidth: 2,
-    margin: '5px',
-  },
-  greeting: {
-    fontSize: 30,
-  },
-});
 
 AppRegistry.registerComponent('Hackathon_CommunityChallenge_2019', () => Hackathon_CommunityChallenge_2019);
