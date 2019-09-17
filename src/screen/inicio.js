@@ -7,6 +7,7 @@ import estilo from '../style/estiloGlobal';
 import LayoutQuadro from '../layout/quadro';
 import LayoutTexto from '../layout/texto';
 import LayoutBotao from '../layout/botao';
+import LayoutAlerta from '../layout/alerta';
 
 export default class ScreenInicio extends React.Component {
 
@@ -29,6 +30,16 @@ export default class ScreenInicio extends React.Component {
         <LayoutTexto style={estilo.prototype.global().h1}>Bem vindo</LayoutTexto>
         <LayoutBotao onClick={this.clickJogar}>Jogar</LayoutBotao>
       </LayoutQuadro>
+      // <LayoutAlerta titulo="Iniciar" textoBotao="Start">
+      //   Testando
+      //   Testando
+      //   Testando
+      //   TestandoTestandoTestandoTestandoTestandoTestando
+      //   TestandoTestandoTestandoTestandoTestandoTestandoTestandoTestandoTestandoTestandoTestandoTestandoTestando
+      //   TestandoTestandoTestando
+      //   TestandoTestando
+      //   Testando
+      // </LayoutAlerta>
     );
   }
 

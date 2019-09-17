@@ -23,6 +23,18 @@ export default class estilo extends React.Component {
       botaoTexto: {
         color:'#222'
       },
+      quadroAlerta:{
+        justifyContent: 'space-around'
+      },
+      viewAlerta:{
+        justifyContent: 'flex-start'
+      },
+      tituloAlerta:{
+        marginBottom: '6px' 
+      },
+      botaoAlerta:{
+        justifyContent: 'flex-end'
+      },
       h1: {
         fontSize: 96
       },
