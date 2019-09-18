@@ -39,6 +39,10 @@ export default class Video extends React.Component {
     VideoModule.resume(name);
   }
 
+  stop(name = "video") {
+    VideoModule.stop(name);
+  }
+
 };
 
 AppRegistry.registerComponent('Video', () => Video);

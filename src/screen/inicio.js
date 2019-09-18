@@ -9,6 +9,7 @@ import LayoutTexto from '../layout/texto';
 import LayoutBotao from '../layout/botao';
 import LayoutAlerta from '../layout/alerta';
 import ScreenFimDoJogo from './fimDoJogo';
+import ScreenJogando from './jogando';
 
 export default class ScreenInicio extends React.Component {
 
@@ -22,7 +23,7 @@ export default class ScreenInicio extends React.Component {
   }
 
   clickJogar(){
-    global.localStorage.setItem("jogando", true);
+    global.localStorage.setItem("telaAtual", "ScreenJogando");
   }
 
   render() {

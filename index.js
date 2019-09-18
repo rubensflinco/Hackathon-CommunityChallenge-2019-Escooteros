@@ -6,10 +6,7 @@ import 'localstorage-polyfill';
 import ScreenInicio from './src/screen/inicio';
 import ScreenCarregando from './src/screen/carregando';
 import ScreenJogando from './src/screen/jogando';
-
-// VideoModule.createPlayer('myPlayer');
-// VideoModule.play('myPlayer', { source: { url: staticAssetURL('video.mp4') }, stereo: '2D' });
-
+import ScreenFimDoJogo from './src/screen/fimDoJogo';
 
 export default class Hackathon_CommunityChallenge_2019 extends React.Component {
 
@@ -17,45 +14,43 @@ export default class Hackathon_CommunityChallenge_2019 extends React.Component {
     super(props);
     this.state = {
       carregado: false,
-      jogando: "false"
+      telaAtual: "ScreenInicio"
     }
   }
 
-  componentWillMount(){
-    global.localStorage.setItem("jogando", false);
-  }
-
   componentDidMount() {
-    // Environment.setBackgroundVideo('myPlayer');
-
-    // Responsavel por loop de verificação para mudar tela de inicio para jogando
-    setInterval(()=>{
-      this.setState({
-        jogando: global.localStorage.getItem("jogando")
-      });
-    },1000)
-
     this.setState({
       carregado: true
     });
+
+
+    // Responsavel por loop de verificação para mudar a tela atual
+    setInterval(() => {
+      this.setState({
+        telaAtual: global.localStorage.getItem("telaAtual")
+      });
+    }, 500);
   }
 
   render() {
     if (this.state.carregado == true) {
-      if (this.state.jogando == "false") {
-        return (
-          <ScreenInicio></ScreenInicio>
-        );
-      } else {
-        return (
-          <ScreenJogando></ScreenJogando>
-        );
+
+      switch (this.state.telaAtual) {
+        case "ScreenInicio":
+          return (<ScreenInicio></ScreenInicio>);
+        case "ScreenJogando":
+          return (<ScreenJogando></ScreenJogando>);
+        case "ScreenCarregando":
+          return (<ScreenCarregando></ScreenCarregando>);
+        case "ScreenFimDoJogo":
+          return (<ScreenFimDoJogo></ScreenFimDoJogo>);
+
+        default:
+          return (<ScreenInicio></ScreenInicio>);
       }
 
     } else {
-      return (
-        <ScreenCarregando></ScreenCarregando>
-      );
+      return (<ScreenCarregando></ScreenCarregando>);
     }
   }
 

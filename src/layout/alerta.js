@@ -22,7 +22,7 @@ export default class LayoutAlerta extends React.Component {
             {this.props.titulo}
           </LayoutTexto>
         </View>
-        <LayoutTexto style={estilo.prototype.global().h6}>
+        <LayoutTexto style={estilo.prototype.global().h5}>
           {this.props.children}
         </LayoutTexto>
         
