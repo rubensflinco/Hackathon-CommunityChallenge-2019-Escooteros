@@ -5,6 +5,7 @@ import {
   staticAssetURL,
 } from 'react-360';
 import VideoModule from 'VideoModule';
+import moment from 'moment';
 
 
 export default class Video extends React.Component {
@@ -17,8 +18,10 @@ export default class Video extends React.Component {
     return VideoModule.createPlayer(name);
   }
 
-  get(element, name = "video") {
-    element.addEventListener('onVideoStatusChanged', (event) => {
+  get(element) {
+    element.addListener('onVideoStatusChanged', (event) => {
+      event.duracao = moment.utc(event.duration*1000).format('HH:mm:ss');
+      event.posicaoTempo = moment.utc(event.position*1000).format('HH:mm:ss');
       console.log(event);
     });
   }

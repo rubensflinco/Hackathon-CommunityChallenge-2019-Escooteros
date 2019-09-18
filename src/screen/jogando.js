@@ -5,7 +5,7 @@ import {
 import LayoutBotoesEscolha from '../layout/botoesEscolha';
 import Video from '../function/video';
 
-var video = Video.prototype.create();
+const video = Video.prototype.create();
 
 export default class ScreenJogando extends React.Component {
 
@@ -20,8 +20,8 @@ export default class ScreenJogando extends React.Component {
 
   click() {
     console.log('test');
-    Video.prototype.play("videos/pegouPatinete.mp4", "2D");
-    console.log(video);
+    // Video.prototype.play("videos/pegouPatinete.mp4", "2D");
+    // Video.prototype.get(video);
   }
 
   render() {
