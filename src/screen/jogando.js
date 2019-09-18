@@ -4,6 +4,7 @@ import {
 } from 'react-360';
 import LayoutBotoesEscolha from '../layout/botoesEscolha';
 import Video from '../function/video';
+import ScreenFimDoJogo from './fimDoJogo';
 
 var video = Video.prototype.create();
 
@@ -26,12 +27,17 @@ export default class ScreenJogando extends React.Component {
 
   render() {
     return (
-      <LayoutBotoesEscolha
-        texto1="test"
-        onClick1={this.click}
-        texto2="test 2 dwad wad"
-        onClick2={this.click}
-      ></LayoutBotoesEscolha>
+      // <LayoutBotoesEscolha
+      //   texto1="test"
+      //   onClick1={this.click}
+      //   texto2="test 2 dwad wad"
+      //   onClick2={this.click}
+      // ></LayoutBotoesEscolha>
+
+      <ScreenFimDoJogo>
+        
+      </ScreenFimDoJogo>
+
     );
   }
 
