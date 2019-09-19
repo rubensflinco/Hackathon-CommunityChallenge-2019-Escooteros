@@ -21,6 +21,7 @@ export default class estilo extends React.Component {
         flexDirection: 'row',
       },
       botaoTexto: {
+        textAlign: 'center',
         color:'#222'
       },
       h1: {
@@ -41,6 +42,12 @@ export default class estilo extends React.Component {
       h6: {
         fontSize: 26
       },
+      bold:{
+        fontWeight: '700',
+      },
+      textoCentro: {
+        textAlign: 'center',
+      },
 
 
       // Estilos padroes de componentes
@@ -49,7 +56,7 @@ export default class estilo extends React.Component {
         fontStyle: 'normal',
         fontWeight: '400',
         color: '#fff',
-        opacity: 1
+        opacity: 1,
       },
       botao: {
         width: 300,
@@ -57,9 +64,10 @@ export default class estilo extends React.Component {
         padding: 10,
         paddingLeft: 30,
         paddingRight: 30,
-        backgroundColor: 'rgba(250, 250, 250, 0.8)',
+        backgroundColor: 'rgba(250, 250, 250, 0.9)',
         borderRadius: 20,
         margin: '5px',
+        justifyContent: 'center',
         alignItems: 'center',
       },
       quadro: {
@@ -83,7 +91,8 @@ export default class estilo extends React.Component {
         backgroundColor: 'transparent',
       },
       quadroAlerta:{
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
+        flexDirection: 'column',
       },
       viewAlerta:{
         justifyContent: 'flex-start'
@@ -92,14 +101,28 @@ export default class estilo extends React.Component {
         marginBottom: '6px' 
       },
       botaoAlerta:{
-        justifyContent: 'flex-end'
+        justifyContent: 'flex-end',
       },
-      br:{
-        // marginBottom: '20px'
-        lineHeight: 3
+      paragrafo:{
+        flexDirection: 'row',
+        height: 10,
+        padding: 20,
+        backgroundColor: "#000",
+				// transform: [{translate: [0, 9, 0]}],
       },
       quadroInicio:{
 				transform: [{translate: [0, 90, 0]}],
+      },
+      espacoCreditos:{
+        height: 300,
+      },
+      scrollCreditos: {
+        top: 80,
+        justifyContent: 'center',
+        alignItems: 'center',
+        overflow: 'hidden',
+        position: 'absolute',
+        zIndex: -1,
       }
 
     });

@@ -1,6 +1,8 @@
 import React from 'react';
 import {
   AppRegistry,
+  Environment,
+  staticAssetURL,
 } from 'react-360';
 import 'localstorage-polyfill';
 import estilo from '../style/estiloGlobal';
@@ -16,7 +18,7 @@ export default class ScreenInicio extends React.Component {
 
   // inside class component
   componentDidMount() {
-
+    Environment.setBackgroundImage(staticAssetURL('backgroundScreenHome.jpg'));
   }
 
   clickJogar(){

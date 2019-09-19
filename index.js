@@ -20,7 +20,7 @@ export default class Hackathon_CommunityChallenge_2019 extends React.Component {
   }
 
   componentDidMount() {
-    global.localStorage.setItem("telaAtual", "ScreenCreditos");
+    global.localStorage.setItem("telaAtual", "ScreenInicio");
 
     this.setState({
       carregado: true

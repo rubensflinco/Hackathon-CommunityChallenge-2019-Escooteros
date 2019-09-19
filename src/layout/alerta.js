@@ -2,6 +2,7 @@ import React from 'react';
 import {
   AppRegistry,
   View,
+  Text,
 } from 'react-360';
 import estilo from '../style/estiloGlobal';
 import LayoutQuadro from './quadro';
@@ -22,9 +23,7 @@ export default class LayoutAlerta extends React.Component {
             {this.props.titulo}
           </LayoutTexto>
         </View>
-        <LayoutTexto style={estilo.prototype.global().h5}>
           {this.props.children}
-        </LayoutTexto>
         
 
         <View style={estilo.prototype.global().botaoAlerta}>

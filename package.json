@@ -1,6 +1,6 @@
 {
   "name": "Hackathon_CommunityChallenge_2019",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-360/scripts/packager.js",
