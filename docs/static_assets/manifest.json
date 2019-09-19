@@ -9,13 +9,13 @@
   "start_url": "https://jotinhabr.github.io/Hackathon-CommunityChallenge-2019/",
   "icons": [
     {
-      "src": "static_assets/Logo.png",
+      "src": "Logo.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     
     {
-      "src": "static_assets/Logo.png",
+      "src": "Logo.png",
       "sizes": "1000x1000",
       "type": "image/png"
     }
