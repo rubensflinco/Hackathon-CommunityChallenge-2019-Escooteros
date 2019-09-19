@@ -98,6 +98,9 @@ export default class estilo extends React.Component {
         // marginBottom: '20px'
         lineHeight: 3
       },
+      quadroInicio:{
+				transform: [{translate: [0, 90, 0]}],
+      }
 
     });
   }
