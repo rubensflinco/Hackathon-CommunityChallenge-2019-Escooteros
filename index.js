@@ -7,6 +7,7 @@ import ScreenInicio from './src/screen/inicio';
 import ScreenCarregando from './src/screen/carregando';
 import ScreenJogando from './src/screen/jogando';
 import ScreenFimDoJogo from './src/screen/fimDoJogo';
+import ScreenCreditos from './src/screen/creditos';
 
 export default class Hackathon_CommunityChallenge_2019 extends React.Component {
 
@@ -14,11 +15,13 @@ export default class Hackathon_CommunityChallenge_2019 extends React.Component {
     super(props);
     this.state = {
       carregado: false,
-      telaAtual: "ScreenInicio"
+      telaAtual: ""
     }
   }
 
   componentDidMount() {
+    global.localStorage.setItem("telaAtual", "ScreenCreditos");
+
     this.setState({
       carregado: true
     });
@@ -44,6 +47,8 @@ export default class Hackathon_CommunityChallenge_2019 extends React.Component {
           return (<ScreenCarregando></ScreenCarregando>);
         case "ScreenFimDoJogo":
           return (<ScreenFimDoJogo></ScreenFimDoJogo>);
+        case "ScreenCreditos":
+          return (<ScreenCreditos></ScreenCreditos>);
 
         default:
           return (<ScreenInicio></ScreenInicio>);

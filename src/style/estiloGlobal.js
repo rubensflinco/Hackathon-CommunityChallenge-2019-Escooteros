@@ -94,6 +94,10 @@ export default class estilo extends React.Component {
       botaoAlerta:{
         justifyContent: 'flex-end'
       },
+      br:{
+        // marginBottom: '20px'
+        lineHeight: 3
+      },
 
     });
   }
