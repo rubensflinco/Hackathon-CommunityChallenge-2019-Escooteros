@@ -94,6 +94,9 @@ export default class estilo extends React.Component {
       botaoAlerta:{
         justifyContent: 'flex-end'
       },
+      quadroInicio:{
+				transform: [{translate: [0, 90, 0]}],
+      }
 
     });
   }

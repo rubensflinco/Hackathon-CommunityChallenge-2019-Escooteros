@@ -7,9 +7,6 @@ import estilo from '../style/estiloGlobal';
 import LayoutQuadro from '../layout/quadro';
 import LayoutTexto from '../layout/texto';
 import LayoutBotao from '../layout/botao';
-import LayoutAlerta from '../layout/alerta';
-import ScreenFimDoJogo from './fimDoJogo';
-import ScreenJogando from './jogando';
 
 export default class ScreenInicio extends React.Component {
 
@@ -28,7 +25,7 @@ export default class ScreenInicio extends React.Component {
 
   render() {
     return (
-      <LayoutQuadro style={estilo.prototype.global().fundoTransparente}>
+      <LayoutQuadro style={[estilo.prototype.global().fundoTransparente, estilo.prototype.global().quadroInicio]}>
         <LayoutTexto style={estilo.prototype.global().h1}>Bem vindo</LayoutTexto>
         <LayoutBotao onClick={this.clickJogar}>Jogar</LayoutBotao>
       </LayoutQuadro>

@@ -15,7 +15,8 @@ export default class ScreenJogando extends React.Component {
 
   // inside class component
   componentDidMount() {
-
+    Video.prototype.play("videos/indoAteOPatinete.mp4", "2D");
+    Video.prototype.get(video);
   }
 
   click() {

@@ -14,6 +14,7 @@ export default class LayoutBotoesEscolha extends React.Component {
 
   // inside class component
   componentDidMount() {
+    
   }
 
   render() {
