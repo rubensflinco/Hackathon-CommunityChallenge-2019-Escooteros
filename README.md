@@ -7,7 +7,9 @@ Escooteros
 
 Inspiration
 In a play of words it’s born the will to create a tool that, at first educates users of that new mobility called micromobility, but also connects people with the city, stimulate the good behavior and citizenship, creates business possibilities between public and private sectors. And all of that in a dynamic and funny way. 
+
 In the name of social good, we all felt impacted with the recent fatalities of electric scooter users around all the planet. 
+
 With that 360 degrees vision, the tool decision was very natural. We need to open the eyes of the society, interpret several viewpoints and extrapolate our limited field of vision. With React 360, each decision will generate a new reaction. 
 
 How we Built It 
