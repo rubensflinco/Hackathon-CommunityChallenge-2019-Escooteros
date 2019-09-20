@@ -50,6 +50,13 @@ Próximos Passos
 Para acessar a demo basta acessar:
 https://jotinhabr.github.io/Hackathon-CommunityChallenge-2019/
 
+# Install
+* git clone https://github.com/JotinhaBR/Hackathon-CommunityChallenge-2019
+* cd Hackathon-CommunityChallenge-2019/
+* npm install
+* npm start
+* open browser in http://localhost:8081/index.html
+
 # Equipe Escooteros:
 <br/>
 <a href="https://github.com/JotinhaBR">Rubens Flinco</a>, <a href="https://github.com/marcelommo">Marcelo Miranda</a>, <a href="https://github.com/bikemessenger">Daniel Freitas</a>, <a href="https://github.com/CataMZ">Catarina Manzieri</a>, <a href="https://github.com/lrdRodrigues">Rogerio Rodrigues</a>.
@@ -62,7 +69,7 @@ https://jotinhabr.github.io/Hackathon-CommunityChallenge-2019/
 
 
 # Projeto:
-[![Play Video by project](https://img.youtube.com/vi/Of9yF_ECPe0/0.jpg)](https://www.youtube.com/watch?v=Of9yF_ECPe0)
+[![Play Video by project](https://img.youtube.com/vi/EWZauYYKALM/0.jpg)](https://www.youtube.com/watch?v=EWZauYYKALM)
 <br>
 <hr>
 Desktop:
