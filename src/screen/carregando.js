@@ -4,6 +4,7 @@ import {
   Environment,
   staticAssetURL,
 } from 'react-360';
+import ReactDOM from 'react-dom'
 import estilo from '../style/estiloGlobal';
 import LayoutQuadro from '../layout/quadro';
 import LayoutTexto from '../layout/texto';
@@ -14,7 +15,12 @@ export default class ScreenCarregando extends React.Component {
     super(props);
   }
 
-  // inside class component
+  componentDestroy() {
+    console.log("Componente destruido");
+    var container = ReactDOM.findDOMNode(this).parentNode;
+    ReactDOM.unmountComponentAtNode(container);
+  }
+
   componentDidMount() {
     Environment.setBackgroundImage(staticAssetURL('backgroundLoading.jpg'));
   }

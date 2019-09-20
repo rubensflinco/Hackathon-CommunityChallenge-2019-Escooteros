@@ -3,6 +3,7 @@ import {
   AppRegistry,
   View,
 } from 'react-360';
+import ReactDOM from 'react-dom'
 import LayoutBotoesEscolha from '../layout/botoesEscolha';
 import FunctionVideo from './video';
 
@@ -17,6 +18,12 @@ export default class FunctionTimeline extends React.Component {
       videoRodando: "",
       videoFinalizou: false,
     }
+  }
+
+  componentDestroy() {
+    console.log("Componente destruido");
+    var container = ReactDOM.findDOMNode(this).parentNode;
+    ReactDOM.unmountComponentAtNode(container);
   }
 
   playVideoAtual(videoAtual, element) {

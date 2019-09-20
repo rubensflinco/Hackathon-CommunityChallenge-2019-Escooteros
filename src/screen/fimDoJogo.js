@@ -3,6 +3,7 @@ import {
   AppRegistry,
   View
 } from 'react-360';
+import ReactDOM from 'react-dom'
 import LayoutAlerta from '../layout/alerta';
 import LayoutTexto from '../layout/texto';
 import FunctionVideo from '../function/video';
@@ -13,8 +14,13 @@ export default class ScreenFimDoJogo extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  componentDestroy() {
+    console.log("Componente destruido");
+    var container = ReactDOM.findDOMNode(this).parentNode;
+    ReactDOM.unmountComponentAtNode(container);
+  }
   
-  // inside class component
   componentDidMount() {
     FunctionVideo.prototype.stop();
   }

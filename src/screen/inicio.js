@@ -9,6 +9,9 @@ import estilo from '../style/estiloGlobal';
 import LayoutQuadro from '../layout/quadro';
 import LayoutTexto from '../layout/texto';
 import LayoutBotao from '../layout/botao';
+import ScreenCreditos from './creditos';
+import ScreenFimDoJogo from './fimDoJogo';
+import ScreenJogando from './jogando';
 
 export default class ScreenInicio extends React.Component {
 
@@ -16,9 +19,15 @@ export default class ScreenInicio extends React.Component {
     super(props);
   }
 
-  // inside class component
   componentDidMount() {
     Environment.setBackgroundImage(staticAssetURL('backgroundScreenHome.jpg'));
+    try {
+      ScreenCreditos.prototype.componentDestroy();
+      ScreenFimDoJogo.prototype.componentDestroy();
+      ScreenJogando.prototype.componentDestroy();
+    } catch (error) {
+      
+    }
   }
 
   clickJogar(){

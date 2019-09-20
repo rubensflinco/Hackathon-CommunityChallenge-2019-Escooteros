@@ -3,6 +3,7 @@ import {
   AppRegistry,
   View
 } from 'react-360';
+import ReactDOM from 'react-dom'
 import LayoutAlerta from '../layout/alerta';
 import FunctionVideo from '../function/video';
 import LayoutTexto from '../layout/texto';
@@ -17,7 +18,12 @@ export default class ScreenCreditos extends React.Component {
     super(props);
   }
 
-  // inside class component
+  componentDestroy() {
+    console.log("Componente destruido");
+    var container = ReactDOM.findDOMNode(this).parentNode;
+    ReactDOM.unmountComponentAtNode(container);
+  }
+
   componentDidMount() {
     FunctionVideo.prototype.stop();
 
