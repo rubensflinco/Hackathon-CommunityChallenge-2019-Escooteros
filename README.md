@@ -56,7 +56,7 @@ https://jotinhabr.github.io/Hackathon-CommunityChallenge-2019/
 
 <br/>
 <br/>
-<img src="https://i.imgur.com/UtHujUT.png">
+<center><img src="https://i.imgur.com/PaEPNX5.png" width="350px"></center>
 <br/>
 <br/>
 
