@@ -43,12 +43,12 @@ export default class ScreenCreditos extends React.Component {
 
   render() {
     return (
-      <LayoutAlerta titulo="Créditos Finais" textoBotao="Jogar novamente" onClick={this.clickRestart}>
+      <LayoutAlerta titulo={global.linguaAtual.ScreenCreditos.titulo} textoBotao={global.linguaAtual.ScreenCreditos.botao} onClick={this.clickRestart}>
         <View style={estilo.prototype.global().espacoCreditos}></View>
         <View style={[estilo.prototype.global().scrollCreditos, { transform: [{ translate: [0, animateScroll, 0] }] }]}>
 
           <LayoutTexto style={[estilo.prototype.global().h6, estilo.prototype.global().bold]}>
-            Business
+            {global.linguaAtual.ScreenCreditos.negocios}
           </LayoutTexto>
           <LayoutTexto style={estilo.prototype.global().h6}>
             Daniel Freitas
@@ -61,7 +61,7 @@ export default class ScreenCreditos extends React.Component {
           </LayoutTexto>
 
           <LayoutTexto style={[estilo.prototype.global().h6, estilo.prototype.global().bold]}>
-            Development
+           {global.linguaAtual.ScreenCreditos.desenvolvedores}
           </LayoutTexto>
           <LayoutTexto style={estilo.prototype.global().h6}>
             Catarina Manzieri
@@ -71,7 +71,7 @@ export default class ScreenCreditos extends React.Component {
           </LayoutTexto>
 
           <LayoutTexto style={[estilo.prototype.global().h6, estilo.prototype.global().bold]}>
-            Management
+            {global.linguaAtual.ScreenCreditos.gestao}
           </LayoutTexto>
           <LayoutTexto style={estilo.prototype.global().h6}>
             Rogério Rodrigues
@@ -81,7 +81,7 @@ export default class ScreenCreditos extends React.Component {
           </LayoutTexto>
 
           <LayoutTexto style={[estilo.prototype.global().h6, estilo.prototype.global().bold]}>
-            Video Recording
+            {global.linguaAtual.ScreenCreditos.gravacaoDeVideo}
           </LayoutTexto>
           <LayoutTexto style={estilo.prototype.global().h6}>
             Daniel Freitas
@@ -97,7 +97,7 @@ export default class ScreenCreditos extends React.Component {
           </LayoutTexto>
 
           <LayoutTexto style={[estilo.prototype.global().h3, estilo.prototype.global().bold]}>
-            Muito obrigado por jogar nosso game :)
+            {global.linguaAtual.ScreenCreditos.agradecimento}
           </LayoutTexto>
 
         </View>

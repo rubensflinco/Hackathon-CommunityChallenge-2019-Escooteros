@@ -52,9 +52,9 @@ export default class FunctionTimeline extends React.Component {
       case "indoAteOPatinete":
         if (this.state.videoFinalizou === true) {
           return (<LayoutBotoesEscolha
-            texto1="Desbloquear"
+            texto1={global.linguaAtual.FunctionTimeline.indoAteOPatinete.texto1}
             onClick1={() => { this.setState({ videoAtual: "celularRoubado", videoFinalizou: false }) }}
-            texto2="Olhar para os lados e desbloquear"
+            texto2={global.linguaAtual.FunctionTimeline.indoAteOPatinete.texto2}
             onClick2={() => { this.setState({ videoAtual: "patineteDesbloqueado", videoFinalizou: false }) }} />)
         }
 
@@ -70,9 +70,9 @@ export default class FunctionTimeline extends React.Component {
       case "patineteDesbloqueado":
         if (this.state.videoFinalizou === true) {
           return (<LayoutBotoesEscolha
-            texto1="Dar três remadas e acelerar"
+            texto1={global.linguaAtual.FunctionTimeline.patineteDesbloqueado.texto1}
             onClick1={() => { this.setState({ videoAtual: "tresRemadasAcertou", videoFinalizou: false }) }}
-            texto2="Dar uma remada e acelerar"
+            texto2={global.linguaAtual.FunctionTimeline.patineteDesbloqueado.texto2}
             onClick2={() => { this.setState({ videoAtual: "umaRemadaErrou", videoFinalizou: false }) }} />)
         }
 
@@ -88,9 +88,9 @@ export default class FunctionTimeline extends React.Component {
       case "tresRemadasAcertou":
         if (this.state.videoFinalizou === true) {
           return (<LayoutBotoesEscolha
-            texto1="Parar para o pedestre passar"
+            texto1={global.linguaAtual.FunctionTimeline.tresRemadasAcertou.texto1}
             onClick1={() => { this.setState({ videoAtual: "parouParaPedestrePassarContinuaParaIrEstacionar", videoFinalizou: false }) }}
-            texto2="Atropelar o pedestre"
+            texto2={global.linguaAtual.FunctionTimeline.tresRemadasAcertou.texto2}
             onClick2={() => { this.setState({ videoAtual: "atropelouPedestre", videoFinalizou: false }) }} />)
         }
 
@@ -106,9 +106,9 @@ export default class FunctionTimeline extends React.Component {
       case "parouParaPedestrePassarContinuaParaIrEstacionar":
         if (this.state.videoFinalizou === true) {
           return (<LayoutBotoesEscolha
-            texto1="Estacionar em cima da arvore"
+            texto1={global.linguaAtual.FunctionTimeline.parouParaPedestrePassarContinuaParaIrEstacionar.texto1}
             onClick1={() => { this.setState({ videoAtual: "estacionouErrado", videoFinalizou: false }) }}
-            texto2="Estacionar patinete ao lado da arvore"
+            texto2={global.linguaAtual.FunctionTimeline.parouParaPedestrePassarContinuaParaIrEstacionar.texto2}
             onClick2={() => { this.setState({ videoAtual: "estacionouCerto", videoFinalizou: false }) }} />)
         }
 

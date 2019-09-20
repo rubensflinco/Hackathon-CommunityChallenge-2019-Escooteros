@@ -2,7 +2,7 @@
   "name": "Escooteros",
   "short_name": "Escooteros",
   "theme_color": "#f4d80f",
-  "background_color": "#f4d80f",
+  "background_color": "#fff6b6",
   "display": "standalone",
   "orientation": "portrait",
   "scope": "/",

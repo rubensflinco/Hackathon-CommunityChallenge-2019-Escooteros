@@ -48,6 +48,9 @@ export default class estilo extends React.Component {
       textoCentro: {
         textAlign: 'center',
       },
+      textoRight: {
+        textAlign: 'right',
+      },
 
 
       // Estilos padroes de componentes
@@ -103,13 +106,6 @@ export default class estilo extends React.Component {
       botaoAlerta:{
         justifyContent: 'flex-end',
       },
-      paragrafo:{
-        flexDirection: 'row',
-        height: 10,
-        padding: 20,
-        backgroundColor: "#000",
-				// transform: [{translate: [0, 9, 0]}],
-      },
       quadroInicio:{
 				transform: [{translate: [0, 90, 0]}],
       },
@@ -123,6 +119,23 @@ export default class estilo extends React.Component {
         overflow: 'hidden',
         position: 'absolute',
         zIndex: -1,
+      },
+      viewIdioma: {
+        position: 'absolute',
+				transform: [{translate: [300, -300, 0]}],
+      },
+      idiomaADireita: {
+				transform: [{translate: [50, 0, 0]}],
+      },
+      botaoIdioma: {
+        paddingLeft: 10,
+        paddingRight: 10,
+      },
+      logotipo: {
+        width: 222,
+        height: 104,
+        position: 'absolute',
+				transform: [{translate: [15, -220, 0]}],
       }
 
     });

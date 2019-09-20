@@ -8,6 +8,7 @@ import ScreenCarregando from './src/screen/carregando';
 import ScreenJogando from './src/screen/jogando';
 import ScreenFimDoJogo from './src/screen/fimDoJogo';
 import ScreenCreditos from './src/screen/creditos';
+import FunctionLanguage from './src/function/language';
 
 export default class Hackathon_CommunityChallenge_2019 extends React.Component {
 
@@ -19,8 +20,9 @@ export default class Hackathon_CommunityChallenge_2019 extends React.Component {
     }
   }
 
-  componentDidMount() {
-    global.localStorage.setItem("telaAtual", "ScreenInicio");
+  async componentDidMount() {
+    await global.localStorage.setItem("telaAtual", "ScreenInicio");
+    await FunctionLanguage.prototype.trocarIdioma("en-us");
 
     this.setState({
       carregado: true

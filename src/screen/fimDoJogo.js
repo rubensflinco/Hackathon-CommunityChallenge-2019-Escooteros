@@ -31,10 +31,10 @@ export default class ScreenFimDoJogo extends React.Component {
   
   render() {
     return (
-      <LayoutAlerta titulo="S E   L A S C O U !" textoBotao="Recomeçar" onClick={this.clickRestart}>
+      <LayoutAlerta titulo={global.linguaAtual.ScreenFimDoJogo.titulo} textoBotao={global.linguaAtual.ScreenFimDoJogo.botao} onClick={this.clickRestart}>
         <View>
-          <LayoutTexto>Achou mesmo que ia continuar jogando?</LayoutTexto>
-          <LayoutTexto style={estilo.prototype.global().textoCentro}>Achou errado, otário!</LayoutTexto>
+          <LayoutTexto style={estilo.prototype.global().textoCentro}>{global.linguaAtual.ScreenFimDoJogo.descricao1}</LayoutTexto>
+          <LayoutTexto style={estilo.prototype.global().textoCentro}>{global.linguaAtual.ScreenFimDoJogo.descricao2}</LayoutTexto>
         </View>
       </LayoutAlerta>
       );

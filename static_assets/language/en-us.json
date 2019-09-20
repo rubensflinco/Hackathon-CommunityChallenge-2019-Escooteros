@@ -1,0 +1,42 @@
+{
+    "LayoutBotoesEscolha":{
+        "escolhaOpcao": "Choose an option:"
+    },
+    "ScreenInicio": {
+        "boasVindas": "Welcome Escootero!",
+        "botaoJogar": "Play"
+    },
+    "ScreenFimDoJogo": {
+        "titulo": "You lose!",
+        "botao": "Restart",
+        "descricao1": "You made a bad choice player!",
+        "descricao2": "Care in the streets should be the same for scooters."
+    },
+    "ScreenCreditos": {
+        "titulo": "Final Credits",
+        "botao": "Play Again",
+        "negocios": "Business",
+        "desenvolvedores": "Developers",
+        "gestao": "Management",
+        "gravacaoDeVideo": "Video Recording",
+        "agradecimento": "Thank you so much for playing! :)"
+    },
+    "FunctionTimeline": {
+        "indoAteOPatinete":{
+            "texto1": "Unlock",
+            "texto2": "Look around and unlock"
+        },
+        "patineteDesbloqueado":{
+            "texto1": "Give three pushes and press the throttle",
+            "texto2": "Give one push and press the throttle"
+        },
+        "tresRemadasAcertou":{
+            "texto1": "Stop for the pedestrian",
+            "texto2": "Run over the pedestrian"
+        },
+        "parouParaPedestrePassarContinuaParaIrEstacionar":{
+            "texto1": "Park the scooter on top of the tree",
+            "texto2": "Park the scooter beside the tree"
+        }
+    }
+}

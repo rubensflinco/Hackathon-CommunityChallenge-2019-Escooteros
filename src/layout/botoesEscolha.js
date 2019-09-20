@@ -20,7 +20,7 @@ export default class LayoutBotoesEscolha extends React.Component {
   render() {
     return (
       <View style={estilo.prototype.global().quadroBototes}>
-        <LayoutTexto style={estilo.prototype.global().h4}>Escolha uma opção:</LayoutTexto>
+        <LayoutTexto style={estilo.prototype.global().h4}>{global.linguaAtual.LayoutBotoesEscolha.escolhaOpcao}</LayoutTexto>
         <View style={estilo.prototype.global().ladoALado}>
 
           <LayoutBotao 
