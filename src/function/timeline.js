@@ -30,7 +30,7 @@ export default class FunctionTimeline extends React.Component {
     if (this.state.videoAtual !== this.state.videoRodando) {
       let This = this;
       this.setState({ videoFinalizou: false, videoRodando: videoAtual });
-      FunctionVideo.prototype.play("videos/" + videoAtual + ".mp4", "2D", 0 ,true);
+      FunctionVideo.prototype.play("videos/" + videoAtual + ".mp4", "2D");
 
       element.addListener('onVideoStatusChanged', (event) => {
         if (event.status == "finished") {
