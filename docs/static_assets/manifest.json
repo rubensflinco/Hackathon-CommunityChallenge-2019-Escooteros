@@ -3,11 +3,18 @@
   "short_name": "Escooteros",
   "theme_color": "#f4d80f",
   "background_color": "#fff6b6",
-  "display": "standalone",
+  "display": "fullscreen",
   "orientation": "portrait",
   "scope": "/",
   "start_url": "https://jotinhabr.github.io/Hackathon-CommunityChallenge-2019/",
   "icons": [
+    
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+
     {
       "src": "logo.png",
       "sizes": "512x512",
