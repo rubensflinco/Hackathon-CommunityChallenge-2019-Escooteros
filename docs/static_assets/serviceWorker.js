@@ -11,6 +11,13 @@ var CACHE = 'escooteros-v2-5';
 const precacheFiles = [
   urlHost+'/',
   urlHost+'/index.html',
+  urlHost+'/static_assets/icons/br.png',
+  urlHost+'/static_assets/icons/eua.png',
+  urlHost+'/static_assets/logo.png',
+  urlHost+'/static_assets/logotipo.png',
+  urlHost+'/static_assets/manifest.json',
+  urlHost+'/static_assets/backgroundLoading.jpg',
+  urlHost+'/static_assets/backgroundScreenHome.jpg',
   urlHost+'/static_assets/videos/indoAteOPatinete.mp4'
 ];
 
@@ -26,7 +33,8 @@ const networkFirstPaths = [
   urlHost+'/static_assets/logotipo.png',
   urlHost+'/static_assets/manifest.json',
   urlHost+'/static_assets/backgroundLoading.jpg',
-  urlHost+'/static_assets/backgroundScreenHome.jpg'
+  urlHost+'/static_assets/backgroundScreenHome.jpg',
+  urlHost+'/static_assets/videos/indoAteOPatinete.mp4'
 ];
 
 // Adicione uma matriz de regex de caminhos que não devem ser armazenados em cache
