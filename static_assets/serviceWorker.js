@@ -21,9 +21,8 @@ const precacheFiles = [
   urlHost+'/static_assets/videos/indoAteOPatinete.mp4'
 ];
 
-// TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
+// TODO: replace the following with the correct offline fallback page i.e.
 const offlineFallbackPage = urlHost+'/static_assets/offline.html';
-
 
 // Adicione uma matriz de regex de caminhos que devem entrar primeiro na rede
 const networkFirstPaths = [
