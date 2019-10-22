@@ -1,4 +1,4 @@
-var cacheName = 'escooteros-v2.5';
+var cacheName = 'escooteros-v2-5';
 var filesToCache = [
   '/',
   '/Hackathon-CommunityChallenge-2019/',
