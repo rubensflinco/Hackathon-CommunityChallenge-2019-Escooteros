@@ -26,7 +26,7 @@ export default class ScreenFimDoJogo extends React.Component {
   }
 
   clickRestart() {
-    global.localStorage.setItem("telaAtual", "ScreenInicio");
+    global.telaAtual = "ScreenInicio";
   }
   
   render() {

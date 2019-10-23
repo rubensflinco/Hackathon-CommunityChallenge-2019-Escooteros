@@ -17,7 +17,6 @@ export default class FunctionLanguage extends React.Component {
       fetch(caminho+filename)
       .then(response=>response.json())
       .then(data=>{ 
-        global.localStorage.setItem("linguaAtual", data);
         global.linguaAtual = data;
         resolve(data);
        });

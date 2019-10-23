@@ -2,7 +2,6 @@ import React from 'react';
 import {
   AppRegistry,
 } from 'react-360';
-import 'localstorage-polyfill';
 import ScreenInicio from './src/screen/inicio';
 import ScreenCarregando from './src/screen/carregando';
 import ScreenJogando from './src/screen/jogando';
@@ -15,32 +14,29 @@ export default class Hackathon_CommunityChallenge_2019 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      carregado: false,
-      telaAtual: ""
+      carregado: false
     }
   }
 
   async componentDidMount() {
-    await global.localStorage.setItem("telaAtual", "ScreenInicio");
     await FunctionLanguage.prototype.trocarIdioma("en-us");
-
-    this.setState({
-      carregado: true
-    });
+    global.telaAtual = "ScreenInicio";
+    await this.setState({ carregado: true });
 
 
-    // Responsavel por loop de verificação para mudar a tela atual
-    setInterval(() => {
-      this.setState({
-        telaAtual: global.localStorage.getItem("telaAtual")
-      });
-    }, 500);
+    setInterval(()=>{
+      if (global.telaAtual !== this.state.telaAtual) {
+        this.setState({ telaAtual: global.telaAtual });
+      }
+    }, 0);
+
   }
 
   render() {
     if (this.state.carregado == true) {
+      console.log("[Tela atual] "+this.state.telaAtual);
 
-      switch (this.state.telaAtual) {
+      switch (global.telaAtual) {
         case "ScreenInicio":
           return (<ScreenInicio></ScreenInicio>);
         case "ScreenJogando":

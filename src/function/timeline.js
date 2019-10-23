@@ -45,7 +45,12 @@ export default class FunctionTimeline extends React.Component {
     this.playVideoAtual(this.state.videoAtual, video);
   }
 
+  componentDidMount(){
+    this.playVideoAtual(this.state.videoAtual, video);
+  }
+
   render() {
+    console.log("[Video atual] "+this.state.videoAtual)
 
     // cada case é um nome de video que retorna algo na tela depois de finalizado
     switch (this.state.videoAtual) {
@@ -62,7 +67,8 @@ export default class FunctionTimeline extends React.Component {
 
       case "celularRoubado":
         if (this.state.videoFinalizou === true) {
-          global.localStorage.setItem("telaAtual", "ScreenFimDoJogo");
+          global.telaAtual = "ScreenFimDoJogo";
+          return (<View />);
         }
 
 
@@ -80,7 +86,8 @@ export default class FunctionTimeline extends React.Component {
 
       case "umaRemadaErrou":
         if (this.state.videoFinalizou === true) {
-          global.localStorage.setItem("telaAtual", "ScreenFimDoJogo");
+          global.telaAtual = "ScreenFimDoJogo";
+          return (<View />);
         }
 
 
@@ -98,11 +105,13 @@ export default class FunctionTimeline extends React.Component {
 
       case "atropelouPedestre":
         if (this.state.videoFinalizou === true) {
-          global.localStorage.setItem("telaAtual", "ScreenFimDoJogo");
+          global.telaAtual = "ScreenFimDoJogo";
+          return (<View />);
         }
 
 
 
+        
       case "parouParaPedestrePassarContinuaParaIrEstacionar":
         if (this.state.videoFinalizou === true) {
           return (<LayoutBotoesEscolha
@@ -114,17 +123,21 @@ export default class FunctionTimeline extends React.Component {
 
 
 
+
+
       case "estacionouErrado":
         if (this.state.videoFinalizou === true) {
-          global.localStorage.setItem("telaAtual", "ScreenFimDoJogo");
+          global.telaAtual = "ScreenFimDoJogo";
+          return (<View />);
         }
 
 
 
       case "estacionouCerto":
-          if (this.state.videoFinalizou === true) {
-            global.localStorage.setItem("telaAtual", "ScreenCreditos");
-          }
+        if (this.state.videoFinalizou === true) {
+          global.telaAtual = "ScreenCreditos";
+          return (<View />);
+        }
 
 
 

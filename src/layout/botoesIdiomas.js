@@ -22,9 +22,9 @@ export default class LayoutBotoesIdiomas extends React.Component {
   }
 
   async clickLanguage(idioma) {
-    await global.localStorage.setItem("telaAtual", "ScreenCarregando");
+    global.telaAtual = "ScreenCarregando";
     await FunctionLanguage.prototype.trocarIdioma(idioma);
-    await global.localStorage.setItem("telaAtual", "ScreenInicio");
+    global.telaAtual = "ScreenInicio";
   }
 
   render() {

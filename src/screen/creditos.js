@@ -16,6 +16,9 @@ export default class ScreenCreditos extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      atualizarTela: false
+    }
   }
 
   componentDestroy() {
@@ -28,17 +31,18 @@ export default class ScreenCreditos extends React.Component {
     FunctionVideo.prototype.stop();
 
     animateInterval = setInterval(() => {
-      console.log(animateScroll);
       if (animateScroll < 250) {
         animateScroll = animateScroll + 1;
+        this.setState({ atualizarTela: true });
       } else {
         clearInterval(animateInterval);
+        this.setState({ atualizarTela: false });
       }
     }, 0);
   }
 
   clickRestart() {
-    global.localStorage.setItem("telaAtual", "ScreenInicio");
+    global.telaAtual = "ScreenInicio";
   }
 
   render() {

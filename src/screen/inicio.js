@@ -5,7 +5,6 @@ import {
   staticAssetURL,
   Image
 } from 'react-360';
-import 'localstorage-polyfill';
 import estilo from '../style/estiloGlobal';
 import LayoutQuadro from '../layout/quadro';
 import LayoutTexto from '../layout/texto';
@@ -33,7 +32,7 @@ export default class ScreenInicio extends React.Component {
   }
 
   clickJogar(){
-    global.localStorage.setItem("telaAtual", "ScreenJogando");
+    global.telaAtual = "ScreenJogando";
   }
 
   render() {
