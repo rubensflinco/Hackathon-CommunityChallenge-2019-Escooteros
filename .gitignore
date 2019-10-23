@@ -2,6 +2,7 @@
 *~
 *.log
 *.js.meta
+escooteros-cli.config
 node_modules/
 static_assets/editar/
 build/static_assets/editar/

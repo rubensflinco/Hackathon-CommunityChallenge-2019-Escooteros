@@ -25,7 +25,7 @@ export default class FunctionVideo extends React.Component {
     });
   }
 
-  play(url, stereo, startPosition = 0, muted = true, name = "video") {
+  play(url, stereo, startPosition = 0, muted = false, name = "video") {
     VideoModule.play(name, { source: { url: staticAssetURL(url) }, stereo, muted, startPosition });
     Environment.setBackgroundVideo(name);
   }
