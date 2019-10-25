@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "bash escooteros-cli.sh start-or-install",
+    "start-https": "bash escooteros-cli.sh start-or-install --https",
     "start-release": "bash escooteros-cli.sh start release",
     "cli-install": "bash escooteros-cli.sh install-command-global",
     "http-server-start-release": "http-server ./docs/ -p 80",

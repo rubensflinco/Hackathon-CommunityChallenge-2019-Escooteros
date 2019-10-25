@@ -22,6 +22,10 @@ case "$1" in
         echo "[Escooteros-CLI] Server connected to: http://localhost/index.html"
         npm run http-server-start-release
         ;;
+      "--https")
+        echo "[Escooteros-CLI] Command 'escooteros start -https' executed"
+        bash escooteros-cli.sh start-or-install --https
+        ;;
       "")
         echo "[Escooteros-CLI] Command 'escooteros start' executed"
         bash escooteros-cli.sh start-or-install
@@ -36,10 +40,17 @@ case "$1" in
   "start-or-install")
     echo "[Escooteros-CLI] Command 'escooteros start-or-install' executed"
     if [ -e "escooteros-cli.config" ]; then
-        echo "[Escooteros-CLI] Start Escooteros project"
-        node -e "require('xopen')('http://localhost:8081/index.html')"
-        echo "[Escooteros-CLI] Server connected to: http://localhost:8081/index.html"
-        node node_modules/react-360/scripts/packager.js
+        if [ "$2" = "--https" ]; then
+          echo "[Escooteros-CLI] Start Escooteros project"
+          node -e "require('xopen')('https://localhost:8081/index.html')"
+          echo "[Escooteros-CLI] Server connected to: https://localhost:8081/index.html"
+          node node_modules/react-360/scripts/packager.js --https
+        else
+          echo "[Escooteros-CLI] Start Escooteros project"
+          node -e "require('xopen')('http://localhost:8081/index.html')"
+          echo "[Escooteros-CLI] Server connected to: http://localhost:8081/index.html"
+          node node_modules/react-360/scripts/packager.js
+        fi
     else
         echo "[Escooteros-CLI] Install Escooteros project"
         bash escooteros-cli.sh install

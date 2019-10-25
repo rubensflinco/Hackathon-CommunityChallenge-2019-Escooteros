@@ -136,6 +136,13 @@ export default class estilo extends React.Component {
         height: 104,
         position: 'absolute',
 				transform: [{translate: [15, -220, 0]}],
+      },
+      botaoFacebook:{
+        width: 650,
+        flexDirection: 'row', 
+        backgroundColor: 'rgba(59, 89, 152, 0.9)',
+        justifyContent:'space-between',
+        alignItems: 'center',
       }
 
     });

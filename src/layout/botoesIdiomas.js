@@ -6,7 +6,6 @@ import {
   Image,
   VrButton
 } from 'react-360';
-import LayoutBotao from './botao';
 import estilo from '../style/estiloGlobal';
 import LayoutTexto from './texto';
 import FunctionLanguage from '../function/language';
