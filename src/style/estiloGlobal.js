@@ -75,7 +75,7 @@ export default class estilo extends React.Component {
       },
       quadro: {
         width: 1000,
-        height: 600,
+        height: 700,
         backgroundColor: 'rgba(255, 255, 255, 0.4)',
         justifyContent: 'center',
         alignItems: 'center',
@@ -90,7 +90,7 @@ export default class estilo extends React.Component {
       },
       viewFullScreen: {
         width: 1000,
-        height: 600,
+        height: 700,
         backgroundColor: 'transparent',
       },
       quadroAlerta:{
@@ -137,12 +137,69 @@ export default class estilo extends React.Component {
         position: 'absolute',
 				transform: [{translate: [15, -220, 0]}],
       },
-      botaoFacebook:{
-        width: 650,
+      botaoFacebook: {
+        width: 'auto',
         flexDirection: 'row', 
         backgroundColor: 'rgba(59, 89, 152, 0.9)',
         justifyContent:'space-between',
         alignItems: 'center',
+        bottom: -120,
+      },
+      quadroRank: {
+        bottom: -120,
+        height: 600,
+        width: 600,
+        justifyContent:'space-between',
+        alignItems: 'center',
+        overflow: 'hidden'
+      },
+      quadroRankTitulo: {
+        marginBottom: 10,
+        fontSize: 40
+      },
+      tabelaLinha: {
+        flexDirection: 'row', 
+        justifyContent:'space-between',
+        alignItems: 'center',
+        padding: 20,
+        borderColor: 'rgba(255, 255, 255, 0.9)',
+        borderWidth: 2,
+        paddingTop: -3,
+        paddingRight: -20,
+        marginBottom: 10
+      },
+      tabelaItens: {
+        paddingRight: 20,
+        paddingLeft: 20,
+        borderRightColor: 'rgba(255, 255, 255, 1)',
+        borderRightWidth: 2,
+        fontSize: 35
+      },
+      tabelaItensImg: {
+        marginTop: 10,
+        marginRight: 20,
+        marginLeft: 20,
+      },
+      tabelaItensIcons:{
+        marginRight: 2,
+        marginLeft: 20,
+      },
+      barraUsuariosIcons:{
+        top: -6,
+        marginRight: 2,
+        marginLeft: 5,
+      },
+      quadroBarraUsuario: {
+        bottom: -90,
+        padding: 20,
+        marginLeft: 50,
+        height: 100,
+        width: 'auto',
+        flexDirection: 'row', 
+        justifyContent:'space-between',
+        alignItems: 'flex-start',
+        overflow: 'hidden',
+        backgroundColor: 'rgba(59, 89, 152, 0.9)'
       }
 
     });

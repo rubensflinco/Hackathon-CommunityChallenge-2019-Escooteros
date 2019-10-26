@@ -47,8 +47,8 @@ export default class LayoutBotaoFacebook extends React.Component {
         <VrButton onClick={this.clickLogarFace} style={[estilo.prototype.global().botao, estilo.prototype.global().botaoFacebook]}>
           <Image
             source={{ uri: staticAssetURL('icons/facebook.png') }}
-            style={{ height: 40, width: 40 }} />
-          <LayoutTexto>Fazer login com Facebook</LayoutTexto>
+            style={{ height: 40, width: 40, marginRight: 20 }} />
+          <LayoutTexto>{global.linguaAtual.LayoutBotaoFacebook.titulo}</LayoutTexto>
         </VrButton>
       </View>
     );

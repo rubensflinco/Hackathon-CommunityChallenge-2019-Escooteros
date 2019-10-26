@@ -67,7 +67,7 @@ export default class FunctionTimeline extends React.Component {
 
       case "celularRoubado":
         if (this.state.videoFinalizou === true) {
-          global.telaAtual = "ScreenFimDoJogo";
+          global.PanelFrenteTelaAtual = "ScreenFimDoJogo";
           return (<View />);
         }
 
@@ -86,7 +86,7 @@ export default class FunctionTimeline extends React.Component {
 
       case "umaRemadaErrou":
         if (this.state.videoFinalizou === true) {
-          global.telaAtual = "ScreenFimDoJogo";
+          global.PanelFrenteTelaAtual = "ScreenFimDoJogo";
           return (<View />);
         }
 
@@ -105,7 +105,7 @@ export default class FunctionTimeline extends React.Component {
 
       case "atropelouPedestre":
         if (this.state.videoFinalizou === true) {
-          global.telaAtual = "ScreenFimDoJogo";
+          global.PanelFrenteTelaAtual = "ScreenFimDoJogo";
           return (<View />);
         }
 
@@ -127,7 +127,7 @@ export default class FunctionTimeline extends React.Component {
 
       case "estacionouErrado":
         if (this.state.videoFinalizou === true) {
-          global.telaAtual = "ScreenFimDoJogo";
+          global.PanelFrenteTelaAtual = "ScreenFimDoJogo";
           return (<View />);
         }
 
@@ -135,7 +135,7 @@ export default class FunctionTimeline extends React.Component {
 
       case "estacionouCerto":
         if (this.state.videoFinalizou === true) {
-          global.telaAtual = "ScreenCreditos";
+          global.PanelFrenteTelaAtual = "ScreenCreditos";
           return (<View />);
         }
 

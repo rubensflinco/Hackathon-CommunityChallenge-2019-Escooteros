@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  AppRegistry,
+  View
 } from 'react-360';
 import ScreenInicio from './screen/inicio';
 import ScreenCarregando from './screen/carregando';
@@ -14,19 +14,26 @@ export default class PanelFrente extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      carregado: false
+      carregado: false,
+      telaAnterior: null
     }
   }
 
   async componentDidMount() {
     await FunctionLanguage.prototype.trocarIdioma("en-us");
-    global.telaAtual = "ScreenInicio";
+    global.PanelFrenteTelaAtual = "ScreenInicio";
     await this.setState({ carregado: true });
 
 
-    setInterval(()=>{
-      if (global.telaAtual !== this.state.telaAtual) {
-        this.setState({ telaAtual: global.telaAtual });
+    // Codigo a baixo é responsavel por atualizar a tela e modificar a tela atual
+    setInterval(async()=>{
+      if (global.PanelFrenteTelaAtual == "ATUALIZAR") {
+        global.PanelFrenteTelaAtual = this.state.telaAnterior;
+        await this.setState({ carregado: false, telaAnterior: global.PanelDireitaTelaAtual });
+        setTimeout(async () => { await this.setState({ carregado: true }); }, 500)
+      } else
+      if (global.PanelFrenteTelaAtual !== this.state.telaAnterior) {
+        this.setState({ telaAnterior: global.PanelFrenteTelaAtual });
       }
     }, 0);
 
@@ -34,9 +41,7 @@ export default class PanelFrente extends React.Component {
 
   render() {
     if (this.state.carregado == true) {
-      console.log("[Tela atual] "+this.state.telaAtual);
-
-      switch (global.telaAtual) {
+      switch (global.PanelFrenteTelaAtual) {
         case "ScreenInicio":
           return (<ScreenInicio></ScreenInicio>);
         case "ScreenJogando":
@@ -49,7 +54,7 @@ export default class PanelFrente extends React.Component {
           return (<ScreenCreditos></ScreenCreditos>);
 
         default:
-          return (<ScreenInicio></ScreenInicio>);
+          return (<View></View>);
       }
 
     } else {
@@ -59,6 +64,3 @@ export default class PanelFrente extends React.Component {
 
 
 };
-
-const ConnectedPanelFrente = connect(PanelFrente);
-AppRegistry.registerComponent('PanelFrente', () => ConnectedPanelFrente);

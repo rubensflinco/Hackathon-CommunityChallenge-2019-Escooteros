@@ -2,6 +2,9 @@
     "LayoutBotoesEscolha":{
         "escolhaOpcao": "Choose an option:"
     },
+    "LayoutBotaoFacebook":{
+        "titulo": "Login with Facebook"
+    },
     "ScreenInicio": {
         "boasVindas": "Welcome Escootero!",
         "botaoJogar": "Play"
@@ -20,6 +23,9 @@
         "gestao": "Management",
         "gravacaoDeVideo": "Video Recording",
         "agradecimento": "Thank you so much for playing! :)"
+    },
+    "ScreenRank":{
+        "titulo": "Global Ranking:"
     },
     "FunctionTimeline": {
         "indoAteOPatinete":{

@@ -2,10 +2,12 @@ import React from 'react';
 import {
   View
 } from 'react-360';
-import FunctionLanguage from './function/language';
 import ScreenCarregando from './screen/carregando';
+import FunctionLanguage from './function/language';
+import ScreenRank from './screen/rank';
 
-export default class PanelEsquerda extends React.Component {
+
+export default class PanelDireita extends React.Component {
 
   constructor(props) {
     super(props);
@@ -17,19 +19,19 @@ export default class PanelEsquerda extends React.Component {
 
   async componentDidMount() {
     await FunctionLanguage.prototype.trocarIdioma("en-us");
-    global.PanelEsquerdaTelaAtual = "VAZIO";
+    global.PanelDireitaTelaAtual = "ScreenRank";
     await this.setState({ carregado: true });
 
-    
+
     // Codigo a baixo é responsavel por atualizar a tela e modificar a tela atual
     setInterval(async () => {
-      if (global.PanelEsquerdaTelaAtual == "ATUALIZAR") {
-        global.PanelEsquerdaTelaAtual = this.state.telaAnterior;
-        await this.setState({ carregado: false, telaAnterior: global.PanelEsquerdaTelaAtual });
+      if (global.PanelDireitaTelaAtual == "ATUALIZAR") {
+        global.PanelDireitaTelaAtual = this.state.telaAnterior;
+        await this.setState({ carregado: false, telaAnterior: global.PanelDireitaTelaAtual });
         setTimeout(async () => { await this.setState({ carregado: true }); }, 500)
       } else
-      if (global.PanelEsquerdaTelaAtual !== this.state.telaAnterior) {
-        this.setState({ telaAnterior: global.PanelEsquerdaTelaAtual });
+      if (global.PanelDireitaTelaAtual !== this.state.telaAnterior) {
+        this.setState({ telaAnterior: global.PanelDireitaTelaAtual });
       }
     }, 0);
 
@@ -37,9 +39,12 @@ export default class PanelEsquerda extends React.Component {
 
   render() {
     if (this.state.carregado == true) {
-      switch (global.PanelEsquerdaTelaAtual) {
+      switch (global.PanelDireitaTelaAtual) {
         case "ScreenRank":
-          return (<View></View>);
+          return (<ScreenRank></ScreenRank>);
+        case "ScreenPerfil":
+          return (<ScreenPerfil></ScreenPerfil>);
+
         default:
           return (<View></View>);
       }

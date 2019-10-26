@@ -42,7 +42,7 @@ export default class ScreenCreditos extends React.Component {
   }
 
   clickRestart() {
-    global.telaAtual = "ScreenInicio";
+    global.PanelFrenteTelaAtual = "ScreenInicio";
   }
 
   render() {

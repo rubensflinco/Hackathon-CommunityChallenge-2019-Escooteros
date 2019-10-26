@@ -22,13 +22,14 @@ export default class ScreenCarregando extends React.Component {
   }
 
   componentDidMount() {
-    Environment.setBackgroundImage(staticAssetURL('backgroundLoading.jpg'));
+    
   }
 
   render() {
     return (
       <LayoutQuadro style={estilo.prototype.global().fundoTransparente}>
         <LayoutTexto style={estilo.prototype.global().h1}>Carregando...</LayoutTexto>
+        <LayoutTexto style={estilo.prototype.global().h1}>Loading...</LayoutTexto>
       </LayoutQuadro>
     );
   }

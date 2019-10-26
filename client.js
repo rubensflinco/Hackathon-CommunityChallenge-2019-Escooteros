@@ -9,7 +9,7 @@ import {
 
 function init(bundle, parent, options = {}) {
 
-  const r360 = new ReactInstance(bundle, parent, {
+  let r360 = new ReactInstance(bundle, parent, {
     // Adicione opções personalizadas aqui
     fullScreen: true,
     nativeModules: [
@@ -19,36 +19,32 @@ function init(bundle, parent, options = {}) {
   });
 
 
-  const PanelFrente = new Surface(1000, 600, Surface.SurfaceShape.Cylinder)
-  PanelFrente.setAngle(0, 0)
+  let PanelFrente = new Surface(1000, 700, Surface.SurfaceShape.Cylinder)
   r360.renderToSurface(
     r360.createRoot('PanelFrente', { /* initial props */ }),
     PanelFrente
   );
 
 
-  // const PanelTras = new Surface(400, 600, Surface.SurfaceShape.Cylinder)
-  // PanelTras.setAngle(0, 0)
-  // r360.renderToSurface(
-  //   r360.createRoot('PanelTras', { /* initial props */ }),
-  //   PanelTras
-  // );
+  let PanelTras = new Surface(5700, 700, Surface.SurfaceShape.Cylinder)
+  r360.renderToSurface(
+    r360.createRoot('PanelTras', { /* initial props */ }),
+    PanelTras
+  );
 
 
-  const PanelEsquerda = new Surface(400, 600, Surface.SurfaceShape.Cylinder)
-  PanelEsquerda.setAngle(1.6, 0)
+  let PanelEsquerda = new Surface(3500, 700, Surface.SurfaceShape.Cylinder)
   r360.renderToSurface(
     r360.createRoot('PanelEsquerda', { /* initial props */ }),
     PanelEsquerda
   );
 
 
-  // const PanelDireita = new Surface(400, 600, Surface.SurfaceShape.Cylinder)
-  // PanelDireita.setAngle(0, 0)
-  // r360.renderToSurface(
-  //   r360.createRoot('PanelDireita', { /* initial props */ }),
-  //   PanelDireita
-  // );
+  let PanelDireita = new Surface(8000, 700, Surface.SurfaceShape.Cylinder)
+  r360.renderToSurface(
+    r360.createRoot('PanelDireita', { /* initial props */ }),
+    PanelDireita
+  );
 
   // Carregue o ambiente inicial
   r360.compositor.setBackground(r360.getAssetURL('backgroundLoading.jpg'));
