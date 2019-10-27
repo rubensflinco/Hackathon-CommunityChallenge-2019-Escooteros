@@ -5,6 +5,7 @@ import {
 import ScreenCarregando from './screen/carregando';
 import FunctionLanguage from './function/language';
 import ScreenRank from './screen/rank';
+import ScreenConfig from './screen/config';
 
 
 export default class PanelDireita extends React.Component {
@@ -42,6 +43,8 @@ export default class PanelDireita extends React.Component {
       switch (global.PanelDireitaTelaAtual) {
         case "ScreenRank":
           return (<ScreenRank></ScreenRank>);
+        case "ScreenConfig":
+          return (<ScreenConfig></ScreenConfig>);
         case "ScreenPerfil":
           return (<ScreenPerfil></ScreenPerfil>);
 

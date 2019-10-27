@@ -30,9 +30,9 @@ export default class LayoutBotoesIdiomas extends React.Component {
 
   render() {
     return (
-      <View style={[estilo.prototype.global().viewIdioma]}>
-        <LayoutTexto style={[estilo.prototype.global().texto, estilo.prototype.global().h5, estilo.prototype.global().textoRight]}>Language</LayoutTexto>
-        <View style={[estilo.prototype.global().ladoALado, estilo.prototype.global().idiomaADireita]}>
+      <View>
+        <LayoutTexto style={[estilo.prototype.global().h5, estilo.prototype.global().textoCentro]}>Language: </LayoutTexto>
+        <View style={[estilo.prototype.global().ladoALado]}>
 
           <VrButton onClick={() => { this.clickLanguage('pt-br') }} style={estilo.prototype.global().botaoIdioma}>
           <Image

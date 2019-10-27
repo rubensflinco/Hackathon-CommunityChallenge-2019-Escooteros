@@ -5,6 +5,10 @@
     "LayoutBotaoFacebook":{
         "titulo": "Login with Facebook"
     },
+    "LayoutBarraUsuario":{
+        "configuracoes": "Settings",
+        "sair": "Logout"
+    },
     "ScreenInicio": {
         "boasVindas": "Welcome Escootero!",
         "botaoJogar": "Play"
@@ -26,6 +30,9 @@
     },
     "ScreenRank":{
         "titulo": "Global Ranking:"
+    },
+    "ScreenConfig":{
+        "titulo": "Settings:"
     },
     "FunctionTimeline": {
         "indoAteOPatinete":{

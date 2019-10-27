@@ -39,7 +39,7 @@ export default class ScreenRank extends React.Component {
   render() {
 
     return (
-      <LayoutQuadro style={[estilo.prototype.global().fundoTransparente, estilo.prototype.global().quadroInicio]}>
+      <LayoutQuadro style={[estilo.prototype.global().fundoTransparente, estilo.prototype.global().transformeQuadrado]}>
         <LayoutBarraUsuario />
 
         <LayoutQuadro style={[estilo.prototype.global().quadroRank]}>

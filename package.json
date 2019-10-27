@@ -20,6 +20,7 @@
     "react-360-web": "~1.1.0",
     "react-dom": "^16.9.0",
     "react-native": "~0.55.4",
+    "react-native-fs": "^2.16.1",
     "three": "^0.87.0"
   },
   "devDependencies": {

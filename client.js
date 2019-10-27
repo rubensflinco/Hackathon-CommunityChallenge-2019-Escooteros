@@ -18,6 +18,12 @@ function init(bundle, parent, options = {}) {
     ...options,
   });
 
+  
+  r360.renderToSurface(
+    r360.createRoot('Hackathon_CommunityChallenge_2019', { /* initial props */ }),
+    r360.getDefaultSurface()
+  );
+
 
   let PanelFrente = new Surface(1000, 700, Surface.SurfaceShape.Cylinder)
   r360.renderToSurface(

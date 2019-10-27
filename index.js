@@ -15,8 +15,16 @@ export default class Hackathon_CommunityChallenge_2019 extends React.Component {
     super(props);
   }
 
-  async componentDidMount() {
-    await FunctionLanguage.prototype.trocarIdioma("en-us");
+  componentWillMount() {
+    global.ConfigSomMuted = false;
+    global.ConfigMusicaMuted = false;
+    global.CreateMusica = true;
+    FunctionLanguage.prototype.trocarIdioma("en-us");
+  }
+
+
+  render(){
+    return(<View></View>);
   }
 
 };

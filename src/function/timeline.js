@@ -6,6 +6,7 @@ import {
 import ReactDOM from 'react-dom'
 import LayoutBotoesEscolha from '../layout/botoesEscolha';
 import FunctionVideo from './video';
+import FunctionMusica from './musica';
 
 const video = FunctionVideo.prototype.create();
 
@@ -30,7 +31,8 @@ export default class FunctionTimeline extends React.Component {
     if (this.state.videoAtual !== this.state.videoRodando) {
       let This = this;
       this.setState({ videoFinalizou: false, videoRodando: videoAtual });
-      FunctionVideo.prototype.play("videos/" + videoAtual + ".mp4", "2D");
+      console.log("global.ConfigSomMuted:"+global.ConfigSomMuted);
+      FunctionVideo.prototype.play("videos/" + videoAtual + ".mp4", "2D", 0, global.ConfigSomMuted);
 
       element.addListener('onVideoStatusChanged', (event) => {
         if (event.status == "finished") {
@@ -67,6 +69,7 @@ export default class FunctionTimeline extends React.Component {
 
       case "celularRoubado":
         if (this.state.videoFinalizou === true) {
+          FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaErrada.mp3');
           global.PanelFrenteTelaAtual = "ScreenFimDoJogo";
           return (<View />);
         }
@@ -75,6 +78,7 @@ export default class FunctionTimeline extends React.Component {
 
       case "patineteDesbloqueado":
         if (this.state.videoFinalizou === true) {
+          FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaCerta.mp3');
           return (<LayoutBotoesEscolha
             texto1={global.linguaAtual.FunctionTimeline.patineteDesbloqueado.texto1}
             onClick1={() => { this.setState({ videoAtual: "tresRemadasAcertou", videoFinalizou: false }) }}
@@ -86,6 +90,7 @@ export default class FunctionTimeline extends React.Component {
 
       case "umaRemadaErrou":
         if (this.state.videoFinalizou === true) {
+          FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaErrada.mp3');
           global.PanelFrenteTelaAtual = "ScreenFimDoJogo";
           return (<View />);
         }
@@ -94,6 +99,7 @@ export default class FunctionTimeline extends React.Component {
 
       case "tresRemadasAcertou":
         if (this.state.videoFinalizou === true) {
+          FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaCerta.mp3');
           return (<LayoutBotoesEscolha
             texto1={global.linguaAtual.FunctionTimeline.tresRemadasAcertou.texto1}
             onClick1={() => { this.setState({ videoAtual: "parouParaPedestrePassarContinuaParaIrEstacionar", videoFinalizou: false }) }}
@@ -105,6 +111,7 @@ export default class FunctionTimeline extends React.Component {
 
       case "atropelouPedestre":
         if (this.state.videoFinalizou === true) {
+          FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaErrada.mp3');
           global.PanelFrenteTelaAtual = "ScreenFimDoJogo";
           return (<View />);
         }
@@ -114,6 +121,7 @@ export default class FunctionTimeline extends React.Component {
         
       case "parouParaPedestrePassarContinuaParaIrEstacionar":
         if (this.state.videoFinalizou === true) {
+          FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaCerta.mp3');
           return (<LayoutBotoesEscolha
             texto1={global.linguaAtual.FunctionTimeline.parouParaPedestrePassarContinuaParaIrEstacionar.texto1}
             onClick1={() => { this.setState({ videoAtual: "estacionouErrado", videoFinalizou: false }) }}
@@ -127,6 +135,7 @@ export default class FunctionTimeline extends React.Component {
 
       case "estacionouErrado":
         if (this.state.videoFinalizou === true) {
+          FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaErrada.mp3');
           global.PanelFrenteTelaAtual = "ScreenFimDoJogo";
           return (<View />);
         }
@@ -135,6 +144,7 @@ export default class FunctionTimeline extends React.Component {
 
       case "estacionouCerto":
         if (this.state.videoFinalizou === true) {
+          FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaCerta.mp3');
           global.PanelFrenteTelaAtual = "ScreenCreditos";
           return (<View />);
         }

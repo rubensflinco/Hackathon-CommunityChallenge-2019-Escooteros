@@ -51,6 +51,19 @@ export default class estilo extends React.Component {
       textoRight: {
         textAlign: 'right',
       },
+      transformeQuadrado:{
+				transform: [{translate: [0, 90, 0]}],
+      },
+      centerContentVertical:{
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      centerContentVertical:{
+        justifyContent: 'center',
+      },
+      centerContentHorizontal:{
+        alignItems: 'center',
+      },
 
 
       // Estilos padroes de componentes
@@ -81,7 +94,7 @@ export default class estilo extends React.Component {
         alignItems: 'center',
       },
       quadroBototes: {
-        top: 400,
+        marginTop: 400,
         width: 1000,
         height: 230,
         backgroundColor: 'rgba(255, 255, 255, 0.4)',
@@ -106,9 +119,6 @@ export default class estilo extends React.Component {
       botaoAlerta:{
         justifyContent: 'flex-end',
       },
-      quadroInicio:{
-				transform: [{translate: [0, 90, 0]}],
-      },
       espacoCreditos:{
         height: 300,
       },
@@ -119,13 +129,6 @@ export default class estilo extends React.Component {
         overflow: 'hidden',
         position: 'absolute',
         zIndex: -1,
-      },
-      viewIdioma: {
-        position: 'absolute',
-				transform: [{translate: [300, -300, 0]}],
-      },
-      idiomaADireita: {
-				transform: [{translate: [50, 0, 0]}],
       },
       botaoIdioma: {
         paddingLeft: 10,
@@ -159,7 +162,7 @@ export default class estilo extends React.Component {
       },
       tabelaLinha: {
         flexDirection: 'row', 
-        justifyContent:'space-between',
+        justifyContent:'flex-start',
         alignItems: 'center',
         padding: 20,
         borderColor: 'rgba(255, 255, 255, 0.9)',
@@ -200,6 +203,53 @@ export default class estilo extends React.Component {
         alignItems: 'flex-start',
         overflow: 'hidden',
         backgroundColor: 'rgba(59, 89, 152, 0.9)'
+      },
+      quadroConfig: {
+        bottom: -120,
+        height: 600,
+        width: 900,
+        justifyContent:'flex-start',
+        alignItems: 'center',
+        overflow: 'hidden'
+      },
+      viewBotaoToggle: {
+        flexDirection: 'row', 
+        justifyContent:'flex-start',
+        alignItems: 'center',
+      },
+      botaoToggle: {
+        width: 100,
+        height: 40,
+        borderWidth: 1,
+        borderColor: 'rgba(255, 255, 255, 0.9)',
+        paddingTop: 0,
+        paddingBottom: 5
+      },
+      botaoToggleText: {
+        paddingTop: 0,
+        fontSize: 40,
+        right: -30
+      },
+      quadroBarraPontos: {
+        padding: 20,
+        height: 100,
+        width: 1000,
+        flexDirection: 'row', 
+        justifyContent:'center',
+        alignItems: 'center',
+        overflow: 'hidden',
+        backgroundColor: 'rgba(255, 255, 255, 0.0)',
+      },
+      pontos: {
+        width: 'auto',
+        padding: 20,
+        paddingBottom: 0,
+        flexDirection: 'row', 
+        justifyContent:'center',
+        alignItems: 'center',
+        overflow: 'hidden',
+        backgroundColor: 'rgba(255, 255, 255, 0.4)',
+        borderWidth: 0,
       }
 
     });
