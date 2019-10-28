@@ -14,11 +14,12 @@ function init(bundle, parent, options = {}) {
     fullScreen: true,
     nativeModules: [
       ctx => new fbAuth(ctx),
+      ctx => new SessionStorage(ctx),
     ],
     ...options,
   });
 
-  
+
   r360.renderToSurface(
     r360.createRoot('Hackathon_CommunityChallenge_2019', { /* initial props */ }),
     r360.getDefaultSurface()
@@ -116,8 +117,9 @@ class fbAuth extends Module {
   tratarRespostaAPI(idCallBack, respostaAPI) {
     if (respostaAPI && !respostaAPI.error) {
       let userFbID = respostaAPI.id;
+      respostaAPI.nome = respostaAPI.name;
       respostaAPI.userFbID = userFbID;
-      respostaAPI.username = respostaAPI.name.toLowerCase().replace(/\s+/, "");
+      respostaAPI.apelido = respostaAPI.name.toLowerCase().replace(/\s+/, "");
       respostaAPI.foto = "http://graph.facebook.com/" + userFbID + "/picture?type=large&width=720&height=720";
 
       this._ctx.invokeCallback(idCallBack, [true, respostaAPI]);
@@ -127,6 +129,35 @@ class fbAuth extends Module {
     }
   }
 
+}
+
+
+
+// Modulo de autenticação com o Facebook SDK
+class SessionStorage extends Module {
+
+  constructor(ctx) {
+    super('SessionStorage');
+    this._ctx = ctx;
+  }
+
+
+  set(name, value) {
+    sessionStorage.setItem(name, value);
+  }
+
+  get(name, idCallBack) {
+    let response = sessionStorage.getItem(name);
+    this._ctx.invokeCallback(idCallBack, [response]);
+  }
+
+  delete(name) {
+    sessionStorage.removeItem(name);
+  }
+
+  clear(){
+    sessionStorage.clear();
+  }
 
 }
 

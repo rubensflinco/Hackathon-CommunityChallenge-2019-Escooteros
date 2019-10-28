@@ -9,6 +9,8 @@ import {
 } from 'react-360';
 import estilo from '../style/estiloGlobal';
 import LayoutTexto from './texto';
+import ServiceLogin from '../service/login';
+import LayoutBarraUsuario from './barraUsuario';
 const facebook = NativeModules.fbAuth;
 
 
@@ -23,16 +25,26 @@ export default class LayoutBotaoFacebook extends React.Component {
 
   }
 
-  clickLogarFace() {
-    facebook.iniciar((sucesso, data) => {
+  async clickLogarFace() {
+    facebook.iniciar(async (sucesso, data) => {
       if (sucesso) {
         // Usuario já está logado
-        console.log("Usuario já Logado", data);
+        let response = await ServiceLogin.prototype.postAutenticar(data);
+        LayoutBarraUsuario.prototype.render();
+        global.PanelFrenteTelaAtual = "ATUALIZAR";
+        global.PanelTrasTelaAtual = "ATUALIZAR";
+        global.PanelDireitaTelaAtual = "ATUALIZAR";
+        global.PanelEsquerdaTelaAtual = "ATUALIZAR";
       } else {
         // Usuario não está logado
-        facebook.autenticar((sucesso, data) => {
+        facebook.autenticar(async (sucesso, data) => {
           if (sucesso) {
-            console.log("Usuario Logado", data);
+            let response = await ServiceLogin.prototype.postAutenticar(data);
+            LayoutBarraUsuario.prototype.render();
+            global.PanelFrenteTelaAtual = "ATUALIZAR";
+            global.PanelTrasTelaAtual = "ATUALIZAR";
+            global.PanelDireitaTelaAtual = "ATUALIZAR";
+            global.PanelEsquerdaTelaAtual = "ATUALIZAR";
           } else {
             console.log("Deu erro", data)
           }

@@ -9,6 +9,7 @@ import estilo from '../style/estiloGlobal';
 import LayoutQuadro from './quadro';
 import LayoutBotaoFacebook from './botaoFacebook';
 import LayoutTexto from './texto';
+import ServiceLogin from '../service/login';
 
 export default class LayoutBarraUsuario extends React.Component {
 
@@ -16,12 +17,17 @@ export default class LayoutBarraUsuario extends React.Component {
     super(props);
     this.state = {
       toogleConfig: false,
-      tooglePerfilMe: false
+      tooglePerfilMe: false,
+      atualizar: false
     }
   }
 
   componentDidMount() {
     
+  }
+
+  atualizar(){
+    this.setState({atualizar: true});
   }
 
   clickConfig(shelf) {
@@ -46,11 +52,12 @@ export default class LayoutBarraUsuario extends React.Component {
 
   clickSair() {
     // Deslogar o usuario
+    ServiceLogin.prototype.sairDaConta();
   }
 
   render() {
-
-    if (false) {
+    console.log("global.UserLogado", global.UserLogado);
+    if (!global.UserLogado) {
       return (<LayoutBotaoFacebook />)
     } else {
       return (

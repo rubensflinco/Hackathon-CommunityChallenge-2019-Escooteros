@@ -8,6 +8,7 @@ import PanelFrente from './src/panelFrente';
 import PanelTras from './src/PanelTras';
 import PanelDireita from './src/PanelDireita';
 import FunctionLanguage from './src/function/language';
+import ServiceLogin from './src/service/login';
 
 export default class Hackathon_CommunityChallenge_2019 extends React.Component {
 
@@ -16,10 +17,15 @@ export default class Hackathon_CommunityChallenge_2019 extends React.Component {
   }
 
   componentWillMount() {
+    ServiceLogin.prototype.verificarLogin();
     global.ConfigSomMuted = false;
     global.ConfigMusicaMuted = false;
     global.CreateMusica = true;
     FunctionLanguage.prototype.trocarIdioma("en-us");
+  }
+
+  componentWillUpdate(){
+    ServiceLogin.prototype.verificarLogin();
   }
 
 
