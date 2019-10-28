@@ -28,11 +28,11 @@ export default class LayoutBotaoMusica extends React.Component {
   async click(shelf) {
     if (global.ConfigMusicaMuted == false) {
       global.ConfigMusicaMuted = true;
-      FunctionMusica.prototype.pause(global.musicaAnterior);
+      FunctionMusica.prototype.pause();
       shelf.setState({cssBotaoToggle: {backgroundColor: 'rgba(255, 255, 255, 0.3)'}, cssBotaoToggleTxt: {right: 30}});
     } else {
       global.ConfigMusicaMuted = false;
-      FunctionMusica.prototype.play(global.musicaAnterior);
+      FunctionMusica.prototype.play();
       shelf.setState({cssBotaoToggle: {backgroundColor: 'rgba(255, 255, 255, 0.9)'}, cssBotaoToggleTxt: {right: -30}});
     }
   }
