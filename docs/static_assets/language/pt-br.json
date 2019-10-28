@@ -2,6 +2,13 @@
     "LayoutBotoesEscolha":{
         "escolhaOpcao": "Escolha uma opção:"
     },
+    "LayoutBotaoFacebook":{
+        "titulo": "Fazer login com Facebook"
+    },
+    "LayoutBarraUsuario":{
+        "configuracoes": "Configurações",
+        "sair": "Sair"
+    },
     "ScreenInicio": {
         "boasVindas": "Bem Vindo Escootero!",
         "botaoJogar": "Jogar"
@@ -20,6 +27,12 @@
         "gestao": "Gestão",
         "gravacaoDeVideo": "Gravação de vídeo",
         "agradecimento": "Muito obrigado por jogar nosso jogo :)"
+    },
+    "ScreenRank":{
+        "titulo": "Ranking Global:"
+    },
+    "ScreenConfig":{
+        "titulo": "Configurações:"
     },
     "FunctionTimeline": {
         "indoAteOPatinete":{
