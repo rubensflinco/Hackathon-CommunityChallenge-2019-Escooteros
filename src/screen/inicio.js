@@ -40,6 +40,7 @@ export default class ScreenInicio extends React.Component {
     FunctionMusica.prototype.destroy();
     FunctionMusica.prototype.create("audios/ScreenInicio/radio.mp3", "musica", global.ConfigMusicaMuted, 0.1, true);
     FunctionMusica.prototype.play();
+    
   }
 
   clickJogar() {

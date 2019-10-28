@@ -34,6 +34,7 @@ export default class ServiceLogin extends React.Component {
         if (response.status == 200) {
           this.salvarToken(body.token);
           global.UserLogado = true;
+          global.UserData = body;
           resolve(body);
         } else {
           reject(response);
@@ -68,7 +69,7 @@ export default class ServiceLogin extends React.Component {
     });
   }
 
-  sairDaConta(){
+  sairDaConta() {
     SessionStorage.delete("token");
     global.UserLogado = false;
     LayoutBarraUsuario.prototype.render();
@@ -80,6 +81,14 @@ export default class ServiceLogin extends React.Component {
 
   salvarToken(token) {
     SessionStorage.set("token", token);
+  }
+
+  async getToken() {
+    return new Promise((resolve) => {
+      SessionStorage.get("token", async (token) => {
+        resolve(token);
+      });
+    });
   }
 
 

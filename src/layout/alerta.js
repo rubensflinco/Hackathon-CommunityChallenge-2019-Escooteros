@@ -17,7 +17,7 @@ export default class LayoutAlerta extends React.Component {
 
   render() {
     return (
-      <LayoutQuadro style={estilo.prototype.global().quadroAlerta}>
+      <LayoutQuadro style={[estilo.prototype.global().quadroAlerta, this.props.style]}>
         <View style={estilo.prototype.global().viewAlerta}>
           <LayoutTexto style={[estilo.prototype.global().h2, estilo.prototype.global().tituloAlerta]}>
             {this.props.titulo}

@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom'
 import LayoutBotoesEscolha from '../layout/botoesEscolha';
 import FunctionVideo from './video';
 import FunctionMusica from './musica';
+import LayoutBarraPontos from '../layout/barraPontos';
 
 const video = FunctionVideo.prototype.create();
 
@@ -69,15 +70,17 @@ export default class FunctionTimeline extends React.Component {
 
       case "celularRoubado":
         if (this.state.videoFinalizou === true) {
+          LayoutBarraPontos.prototype.perderPontos('10');
           FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaErrada.mp3');
           global.PanelFrenteTelaAtual = "ScreenFimDoJogo";
           return (<View />);
         }
-
+        
 
 
       case "patineteDesbloqueado":
         if (this.state.videoFinalizou === true) {
+          LayoutBarraPontos.prototype.ganharPontos('30');
           FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaCerta.mp3');
           return (<LayoutBotoesEscolha
             texto1={global.linguaAtual.FunctionTimeline.patineteDesbloqueado.texto1}
@@ -90,6 +93,7 @@ export default class FunctionTimeline extends React.Component {
 
       case "umaRemadaErrou":
         if (this.state.videoFinalizou === true) {
+          LayoutBarraPontos.prototype.perderPontos('20');
           FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaErrada.mp3');
           global.PanelFrenteTelaAtual = "ScreenFimDoJogo";
           return (<View />);
@@ -99,6 +103,7 @@ export default class FunctionTimeline extends React.Component {
 
       case "tresRemadasAcertou":
         if (this.state.videoFinalizou === true) {
+          LayoutBarraPontos.prototype.ganharPontos('30');
           FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaCerta.mp3');
           return (<LayoutBotoesEscolha
             texto1={global.linguaAtual.FunctionTimeline.tresRemadasAcertou.texto1}
@@ -111,6 +116,7 @@ export default class FunctionTimeline extends React.Component {
 
       case "atropelouPedestre":
         if (this.state.videoFinalizou === true) {
+          LayoutBarraPontos.prototype.perderPontos('200');
           FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaErrada.mp3');
           global.PanelFrenteTelaAtual = "ScreenFimDoJogo";
           return (<View />);
@@ -121,6 +127,7 @@ export default class FunctionTimeline extends React.Component {
         
       case "parouParaPedestrePassarContinuaParaIrEstacionar":
         if (this.state.videoFinalizou === true) {
+          LayoutBarraPontos.prototype.ganharPontos('100');
           FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaCerta.mp3');
           return (<LayoutBotoesEscolha
             texto1={global.linguaAtual.FunctionTimeline.parouParaPedestrePassarContinuaParaIrEstacionar.texto1}
@@ -135,6 +142,7 @@ export default class FunctionTimeline extends React.Component {
 
       case "estacionouErrado":
         if (this.state.videoFinalizou === true) {
+          LayoutBarraPontos.prototype.perderPontos('666');
           FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaErrada.mp3');
           global.PanelFrenteTelaAtual = "ScreenFimDoJogo";
           return (<View />);
@@ -144,6 +152,7 @@ export default class FunctionTimeline extends React.Component {
 
       case "estacionouCerto":
         if (this.state.videoFinalizou === true) {
+          LayoutBarraPontos.prototype.ganharPontos('100');
           FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaCerta.mp3');
           global.PanelFrenteTelaAtual = "ScreenCreditos";
           return (<View />);

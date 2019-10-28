@@ -250,6 +250,10 @@ export default class estilo extends React.Component {
         overflow: 'hidden',
         backgroundColor: 'rgba(255, 255, 255, 0.4)',
         borderWidth: 0,
+      },
+      fimDoJogo:{
+        bottom: -20,
+        height: 600,
       }
 
     });

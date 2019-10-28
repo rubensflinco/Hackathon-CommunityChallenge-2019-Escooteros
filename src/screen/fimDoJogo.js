@@ -8,9 +8,10 @@ import LayoutAlerta from '../layout/alerta';
 import LayoutTexto from '../layout/texto';
 import FunctionVideo from '../function/video';
 import estilo from '../style/estiloGlobal';
+import LayoutBarraPontos from '../layout/barraPontos';
 
 export default class ScreenFimDoJogo extends React.Component {
-  
+
   constructor(props) {
     super(props);
   }
@@ -20,7 +21,7 @@ export default class ScreenFimDoJogo extends React.Component {
     var container = ReactDOM.findDOMNode(this).parentNode;
     ReactDOM.unmountComponentAtNode(container);
   }
-  
+
   componentDidMount() {
     FunctionVideo.prototype.stop();
   }
@@ -28,20 +29,23 @@ export default class ScreenFimDoJogo extends React.Component {
   clickRestart() {
     global.PanelFrenteTelaAtual = "ScreenInicio";
   }
-  
+
   render() {
     return (
-      <LayoutAlerta titulo={global.linguaAtual.ScreenFimDoJogo.titulo} textoBotao={global.linguaAtual.ScreenFimDoJogo.botao} onClick={this.clickRestart}>
-        <View>
-          <LayoutTexto style={estilo.prototype.global().textoCentro}>{global.linguaAtual.ScreenFimDoJogo.descricao1}</LayoutTexto>
-          <LayoutTexto style={estilo.prototype.global().textoCentro}>{global.linguaAtual.ScreenFimDoJogo.descricao2}</LayoutTexto>
-        </View>
-      </LayoutAlerta>
-      );
-    }
-    
-    
-  };
-  
-  AppRegistry.registerComponent('ScreenCarregando', () => ScreenFimDoJogo);
-  
+      <View>
+        <LayoutBarraPontos />
+        
+        <LayoutAlerta titulo={global.linguaAtual.ScreenFimDoJogo.titulo} textoBotao={global.linguaAtual.ScreenFimDoJogo.botao} onClick={this.clickRestart} style={estilo.prototype.global().fimDoJogo}>
+          <View>
+            <LayoutTexto style={estilo.prototype.global().textoCentro}>{global.linguaAtual.ScreenFimDoJogo.descricao1}</LayoutTexto>
+            <LayoutTexto style={estilo.prototype.global().textoCentro}>{global.linguaAtual.ScreenFimDoJogo.descricao2}</LayoutTexto>
+          </View>
+        </LayoutAlerta>
+      </View>
+    );
+  }
+
+
+};
+
+AppRegistry.registerComponent('ScreenCarregando', () => ScreenFimDoJogo);
