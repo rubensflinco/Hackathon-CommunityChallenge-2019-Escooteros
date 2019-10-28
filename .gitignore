@@ -2,6 +2,7 @@
 *~
 *.log
 *.js.meta
+yarn.lock
 escooteros-cli.config
 node_modules/
 static_assets/editar/
