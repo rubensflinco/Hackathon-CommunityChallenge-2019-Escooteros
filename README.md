@@ -50,7 +50,7 @@ Próximos Passos
 
 # Demo
 Para acessar a demo basta acessar:
-https://jotinhabr.github.io/Hackathon-CommunityChallenge-2019/
+https://jotinhabr.github.io/Hackathon-CommunityChallenge-2019-Escooteros/
 
 # Install
 * git clone https://github.com/JotinhaBR/Hackathon-CommunityChallenge-2019
