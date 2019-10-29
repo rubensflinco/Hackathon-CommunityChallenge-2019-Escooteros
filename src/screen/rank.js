@@ -30,6 +30,7 @@ export default class ScreenRank extends React.Component {
 
   async componentDidMount() {
     await this.getUsers();
+    await this.setState({ carregado: true });
   }
 
   async getUsers() {
@@ -38,7 +39,6 @@ export default class ScreenRank extends React.Component {
     let response = await ServiceUser.prototype.getTodos("?filtroRank=true");
     let getUsers = response.data;
     console.log(getUsers);
-
     await this.setState({ getUsers, carregado: true });
   }
 

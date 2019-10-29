@@ -72,7 +72,7 @@ export default class ServiceLogin extends React.Component {
   sairDaConta() {
     SessionStorage.delete("token");
     global.UserLogado = false;
-    LayoutBarraUsuario.prototype.render();
+    global.LayoutBarraUsuario = "ATUALIZAR"
     global.PanelFrenteTelaAtual = "ATUALIZAR";
     global.PanelTrasTelaAtual = "ATUALIZAR";
     global.PanelDireitaTelaAtual = "ATUALIZAR";

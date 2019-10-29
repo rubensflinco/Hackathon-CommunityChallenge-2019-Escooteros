@@ -21,7 +21,6 @@ export default class LayoutBarraUsuario extends React.Component {
     this.state = {
       toogleConfig: false,
       tooglePerfilMe: false,
-      atualizar: false,
       carregado: false,
       getUser: {}
     }
@@ -29,12 +28,18 @@ export default class LayoutBarraUsuario extends React.Component {
 
   async componentDidMount() {
     await this.getUser();
-  }
+    await this.setState({ carregado: true });
 
-  atualizar() {
-    this.setState({ atualizar: true });
+    // Codigo a baixo é responsavel por atualizar a tela e modificar a tela atual
+    setInterval(async () => {
+      if (global.LayoutBarraUsuario == "ATUALIZAR") {
+        await this.setState({ carregado: false });
+        global.LayoutBarraUsuario = "ATUALIZADO";
+        await this.setState({ carregado: true });
+      }
+    }, 0);
   }
-
+  
   clickConfig(shelf) {
     if (!shelf.state.toogleConfig) {
       global.PanelDireitaTelaAtual = "ScreenConfig";
@@ -56,11 +61,13 @@ export default class LayoutBarraUsuario extends React.Component {
   }
 
   async getUser() {
-    await this.setState({ carregado: false });
-    let token = await ServiceLogin.prototype.getToken();
-    let response = await ServiceUser.prototype.getUnico(token);
-    let getUser = response.data;
-    await this.setState({ getUser, carregado: true });
+    if (global.UserLogado) {
+      await this.setState({ carregado: false });
+      let token = await ServiceLogin.prototype.getToken();
+      let response = await ServiceUser.prototype.getUnico(token);
+      let getUser = response.data;
+      await this.setState({ getUser, carregado: true });
+    }
   }
 
   clickSair() {

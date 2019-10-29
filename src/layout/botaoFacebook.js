@@ -39,11 +39,11 @@ export default class LayoutBotaoFacebook extends React.Component {
   }
 
   async clickLogarFace() {
-    facebook.iniciar(async (sucesso, data) => {
+    await facebook.iniciar(async (sucesso, data) => {
       if (sucesso) {
         // Usuario já está logado
         let response = await ServiceLogin.prototype.postAutenticar(data);
-        LayoutBarraUsuario.prototype.render();
+        global.LayoutBarraUsuario = "ATUALIZAR";
         global.PanelFrenteTelaAtual = "ATUALIZAR";
         global.PanelTrasTelaAtual = "ATUALIZAR";
         global.PanelDireitaTelaAtual = "ATUALIZAR";
@@ -53,7 +53,7 @@ export default class LayoutBotaoFacebook extends React.Component {
         facebook.autenticar(async (sucesso, data) => {
           if (sucesso) {
             let response = await ServiceLogin.prototype.postAutenticar(data);
-            LayoutBarraUsuario.prototype.render();
+            global.LayoutBarraUsuario = "ATUALIZAR";
             global.PanelFrenteTelaAtual = "ATUALIZAR";
             global.PanelTrasTelaAtual = "ATUALIZAR";
             global.PanelDireitaTelaAtual = "ATUALIZAR";
@@ -64,6 +64,12 @@ export default class LayoutBotaoFacebook extends React.Component {
         });
       }
     });
+
+    global.LayoutBarraUsuario = "ATUALIZAR";
+    global.PanelFrenteTelaAtual = "ATUALIZAR";
+    global.PanelTrasTelaAtual = "ATUALIZAR";
+    global.PanelDireitaTelaAtual = "ATUALIZAR";
+    global.PanelEsquerdaTelaAtual = "ATUALIZAR";
   }
 
   render() {
