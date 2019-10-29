@@ -2,7 +2,7 @@
 if (location.hostname === "localhost" || location.hostname === "127.0.0.1"){
     var urlHost = location.protocol='//'+location.hostname+':'+location.port;
 }else{
-    var urlHost =  location.protocol='//'+location.hostname+':'+location.port+'/Hackathon-CommunityChallenge-2019';
+    var urlHost =  location.protocol='//'+location.hostname+':'+location.port+'/Hackathon-CommunityChallenge-2019-Escooteros';
 }
 
 var CACHE = 'escooteros-v2-5';
