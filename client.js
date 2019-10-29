@@ -26,28 +26,48 @@ function init(bundle, parent, options = {}) {
   );
 
 
-  let PanelFrente = new Surface(1000, 700, Surface.SurfaceShape.Cylinder)
+  let PanelFrente = new Surface(1000, 700, Surface.SurfaceShape.Flat)
+  PanelFrente.setAngle(
+    0, /* yaw angle */
+    0, /* pitch angle */
+    0  /* roll angle */
+  );
   r360.renderToSurface(
     r360.createRoot('PanelFrente', { /* initial props */ }),
     PanelFrente
   );
 
 
-  let PanelTras = new Surface(5700, 700, Surface.SurfaceShape.Cylinder)
+  let PanelTras = new Surface(1000, 700, Surface.SurfaceShape.Flat)
+  PanelTras.setAngle(
+    (-Math.PI / 2)*2, /* yaw angle */
+    0, /* pitch angle */
+    0  /* roll angle */
+  );
   r360.renderToSurface(
     r360.createRoot('PanelTras', { /* initial props */ }),
     PanelTras
   );
 
 
-  let PanelEsquerda = new Surface(3500, 700, Surface.SurfaceShape.Cylinder)
+  let PanelEsquerda = new Surface(1000, 700, Surface.SurfaceShape.Flat)
+  PanelEsquerda.setAngle(
+    (-Math.PI / 2)*1, /* yaw angle */
+    0, /* pitch angle */
+    0  /* roll angle */
+  );
   r360.renderToSurface(
     r360.createRoot('PanelEsquerda', { /* initial props */ }),
     PanelEsquerda
   );
 
 
-  let PanelDireita = new Surface(8000, 700, Surface.SurfaceShape.Cylinder)
+  let PanelDireita = new Surface(1000, 700, Surface.SurfaceShape.Flat)
+  PanelDireita.setAngle(
+    (-Math.PI / 2)*3, /* yaw angle */
+    0, /* pitch angle */
+    0  /* roll angle */
+  );
   r360.renderToSurface(
     r360.createRoot('PanelDireita', { /* initial props */ }),
     PanelDireita
