@@ -40,9 +40,9 @@ export default class ServiceUser extends React.Component {
     });
   }
 
-  async getTodos() {
+  async getTodos(filtroRank = "") {
     return new Promise((resolve, reject) => {
-      let url = `${config.api.host}/user/todos`;
+      let url = `${config.api.host}/user/todos`+filtroRank;
 
       fetch(url, {
         method: 'GET',

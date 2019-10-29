@@ -18,11 +18,24 @@ export default class LayoutBotaoFacebook extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      toogleConfig: false,
+    }
   }
 
   // inside class component
   componentDidMount() {
 
+  }
+
+  clickConfig(shelf) {
+    if (!shelf.state.toogleConfig) {
+      global.PanelDireitaTelaAtual = "ScreenConfig";
+      shelf.setState({ toogleConfig: true });
+    } else {
+      global.PanelDireitaTelaAtual = "ScreenRank";
+      shelf.setState({ toogleConfig: false });
+    }
   }
 
   async clickLogarFace() {
@@ -55,12 +68,19 @@ export default class LayoutBotaoFacebook extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={[estilo.prototype.global().ladoALado]}>
         <VrButton onClick={this.clickLogarFace} style={[estilo.prototype.global().botao, estilo.prototype.global().botaoFacebook]}>
           <Image
             source={{ uri: staticAssetURL('icons/facebook.png') }}
             style={{ height: 40, width: 40, marginRight: 20 }} />
           <LayoutTexto>{global.linguaAtual.LayoutBotaoFacebook.titulo}</LayoutTexto>
+        </VrButton>
+
+        <VrButton onClick={() => { this.clickConfig(this) }} style={[estilo.prototype.global().configNotLogin, estilo.prototype.global().ladoALado]}>
+          <Image
+            source={{ uri: staticAssetURL('icons/config.png') }}
+            style={[estilo.prototype.global().barraUsuariosIcons, { width: 60, height: 60 }]} />
+          <LayoutTexto style={estilo.prototype.global().tabelaItens}>{global.linguaAtual.LayoutBarraUsuario.configuracoes}</LayoutTexto>
         </VrButton>
       </View>
     );

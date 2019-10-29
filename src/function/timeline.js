@@ -32,13 +32,11 @@ export default class FunctionTimeline extends React.Component {
     if (this.state.videoAtual !== this.state.videoRodando) {
       let This = this;
       this.setState({ videoFinalizou: false, videoRodando: videoAtual });
-      console.log("global.ConfigSomMuted:"+global.ConfigSomMuted);
       FunctionVideo.prototype.play("videos/" + videoAtual + ".mp4", "2D", 0, global.ConfigSomMuted);
 
       element.addListener('onVideoStatusChanged', (event) => {
         if (event.status == "finished") {
           This.setState({ videoFinalizou: true })
-          console.log("O video terminou");
         }
       });
     }
@@ -53,8 +51,6 @@ export default class FunctionTimeline extends React.Component {
   }
 
   render() {
-    console.log("[Video atual] "+this.state.videoAtual)
-
     // cada case é um nome de video que retorna algo na tela depois de finalizado
     switch (this.state.videoAtual) {
       case "indoAteOPatinete":
@@ -93,7 +89,7 @@ export default class FunctionTimeline extends React.Component {
 
       case "umaRemadaErrou":
         if (this.state.videoFinalizou === true) {
-          LayoutBarraPontos.prototype.perderPontos('20');
+          LayoutBarraPontos.prototype.perderPontos('30');
           FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaErrada.mp3');
           global.PanelFrenteTelaAtual = "ScreenFimDoJogo";
           return (<View />);
@@ -103,7 +99,7 @@ export default class FunctionTimeline extends React.Component {
 
       case "tresRemadasAcertou":
         if (this.state.videoFinalizou === true) {
-          LayoutBarraPontos.prototype.ganharPontos('30');
+          LayoutBarraPontos.prototype.ganharPontos('50');
           FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaCerta.mp3');
           return (<LayoutBotoesEscolha
             texto1={global.linguaAtual.FunctionTimeline.tresRemadasAcertou.texto1}
@@ -116,7 +112,7 @@ export default class FunctionTimeline extends React.Component {
 
       case "atropelouPedestre":
         if (this.state.videoFinalizou === true) {
-          LayoutBarraPontos.prototype.perderPontos('200');
+          LayoutBarraPontos.prototype.perderPontos('500');
           FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaErrada.mp3');
           global.PanelFrenteTelaAtual = "ScreenFimDoJogo";
           return (<View />);

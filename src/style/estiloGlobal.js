@@ -152,7 +152,7 @@ export default class estilo extends React.Component {
         bottom: -120,
         height: 600,
         width: 600,
-        justifyContent:'space-between',
+        justifyContent:'flex-start',
         alignItems: 'center',
         overflow: 'hidden'
       },
@@ -254,6 +254,9 @@ export default class estilo extends React.Component {
       fimDoJogo:{
         bottom: -20,
         height: 600,
+      },
+      configNotLogin:{
+        bottom: -200,
       }
 
     });

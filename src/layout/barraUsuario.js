@@ -3,13 +3,16 @@ import {
   AppRegistry,
   Image,
   VrButton,
-  staticAssetURL
+  staticAssetURL,
+  View
 } from 'react-360';
 import estilo from '../style/estiloGlobal';
 import LayoutQuadro from './quadro';
 import LayoutBotaoFacebook from './botaoFacebook';
 import LayoutTexto from './texto';
 import ServiceLogin from '../service/login';
+import ScreenCarregando from '../screen/carregando';
+import ServiceUser from '../service/user';
 
 export default class LayoutBarraUsuario extends React.Component {
 
@@ -18,16 +21,18 @@ export default class LayoutBarraUsuario extends React.Component {
     this.state = {
       toogleConfig: false,
       tooglePerfilMe: false,
-      atualizar: false
+      atualizar: false,
+      carregado: false,
+      getUser: {}
     }
   }
 
-  componentDidMount() {
-    
+  async componentDidMount() {
+    await this.getUser();
   }
 
-  atualizar(){
-    this.setState({atualizar: true});
+  atualizar() {
+    this.setState({ atualizar: true });
   }
 
   clickConfig(shelf) {
@@ -50,47 +55,59 @@ export default class LayoutBarraUsuario extends React.Component {
     }
   }
 
+  async getUser() {
+    await this.setState({ carregado: false });
+    let token = await ServiceLogin.prototype.getToken();
+    let response = await ServiceUser.prototype.getUnico(token);
+    let getUser = response.data;
+    await this.setState({ getUser, carregado: true });
+  }
+
   clickSair() {
     // Deslogar o usuario
     ServiceLogin.prototype.sairDaConta();
   }
 
   render() {
-    console.log("global.UserLogado", global.UserLogado);
-    if (!global.UserLogado) {
-      return (<LayoutBotaoFacebook />)
+    if (this.state.carregado) {
+      if (!global.UserLogado) {
+        return (<LayoutBotaoFacebook />)
+      } else {
+        return (
+          <LayoutQuadro style={[estilo.prototype.global().quadroBarraUsuario]}>
+
+            <View style={[estilo.prototype.global().ladoALado]}>
+              <Image
+                source={{ uri: this.state.getUser.foto }}
+                style={[estilo.prototype.global().tabelaItensImg, { width: 50, height: 50 }]} />
+              <LayoutTexto style={estilo.prototype.global().tabelaItens}>{this.state.getUser.nome}</LayoutTexto>
+
+              <Image
+                source={{ uri: staticAssetURL('icons/estrela.png') }}
+                style={[estilo.prototype.global().barraUsuariosIcons, { width: 60, height: 60 }]} />
+              <LayoutTexto style={estilo.prototype.global().tabelaItens}> {this.state.getUser.pontos}</LayoutTexto>
+            </View>
+
+            <VrButton onClick={() => { this.clickConfig(this) }} style={[estilo.prototype.global().ladoALado]}>
+              <Image
+                source={{ uri: staticAssetURL('icons/config.png') }}
+                style={[estilo.prototype.global().barraUsuariosIcons, { width: 60, height: 60 }]} />
+              <LayoutTexto style={estilo.prototype.global().tabelaItens}>{global.linguaAtual.LayoutBarraUsuario.configuracoes}</LayoutTexto>
+            </VrButton>
+
+            <VrButton onClick={this.clickSair} style={[estilo.prototype.global().ladoALado]}>
+              <Image
+                source={{ uri: staticAssetURL('icons/sair.png') }}
+                style={[estilo.prototype.global().barraUsuariosIcons, { width: 60, height: 60 }]} />
+              <LayoutTexto style={estilo.prototype.global().tabelaItens}>{global.linguaAtual.LayoutBarraUsuario.sair}</LayoutTexto>
+            </VrButton>
+
+          </LayoutQuadro>
+        );
+      }
+
     } else {
-      return (
-        <LayoutQuadro style={[estilo.prototype.global().quadroBarraUsuario]}>
-
-          <VrButton onClick={()=>{this.clickPerfilMe(this)}} style={[estilo.prototype.global().ladoALado]}>
-            <Image
-              source={{ uri: "http://graph.facebook.com/1722854961180673/picture?type=large&width=720&height=720" }}
-              style={[estilo.prototype.global().tabelaItensImg, { width: 50, height: 50 }]} />
-            <LayoutTexto style={estilo.prototype.global().tabelaItens}>Rubens Flinco</LayoutTexto>
-
-            <Image
-              source={{ uri: staticAssetURL('icons/estrela.png') }}
-              style={[estilo.prototype.global().barraUsuariosIcons, { width: 60, height: 60 }]} />
-            <LayoutTexto style={estilo.prototype.global().tabelaItens}> 8273428</LayoutTexto>
-          </VrButton>
-
-          <VrButton onClick={()=>{this.clickConfig(this)}} style={[estilo.prototype.global().ladoALado]}>
-            <Image
-              source={{ uri: staticAssetURL('icons/config.png') }}
-              style={[estilo.prototype.global().barraUsuariosIcons, { width: 60, height: 60 }]} />
-            <LayoutTexto style={estilo.prototype.global().tabelaItens}>{global.linguaAtual.LayoutBarraUsuario.configuracoes}</LayoutTexto>
-          </VrButton>
-
-          <VrButton onClick={this.clickSair} style={[estilo.prototype.global().ladoALado]}>
-            <Image
-              source={{ uri: staticAssetURL('icons/sair.png') }}
-              style={[estilo.prototype.global().barraUsuariosIcons, { width: 60, height: 60 }]} />
-            <LayoutTexto style={estilo.prototype.global().tabelaItens}>{global.linguaAtual.LayoutBarraUsuario.sair}</LayoutTexto>
-          </VrButton>
-
-        </LayoutQuadro>
-      );
+      return (<ScreenCarregando />)
     }
 
   }

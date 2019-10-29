@@ -33,6 +33,8 @@ export default class ScreenInicio extends React.Component {
 
     global.ConfigMusicaMuted = false;
     global.CreateMusica = true;
+    global.BarraPontosReqOne = true;
+    global.LayoutBarraPontos = "ATUALIZAR";
     global.PanelTrasTelaAtual = "VAZIA";
     global.PanelDireitaTelaAtual = "ScreenRank";
     global.PanelEsquerdaTelaAtual = "VAZIA";
@@ -40,7 +42,6 @@ export default class ScreenInicio extends React.Component {
     FunctionMusica.prototype.destroy();
     FunctionMusica.prototype.create("audios/ScreenInicio/radio.mp3", "musica", global.ConfigMusicaMuted, 0.1, true);
     FunctionMusica.prototype.play();
-    
   }
 
   clickJogar() {
@@ -48,7 +49,6 @@ export default class ScreenInicio extends React.Component {
   }
 
   render() {
-
     return (
       <LayoutQuadro style={[estilo.prototype.global().fundoTransparente, estilo.prototype.global().transformeQuadrado]}>
         <LayoutTexto style={estilo.prototype.global().h1}>{global.linguaAtual.ScreenInicio.boasVindas}</LayoutTexto>
