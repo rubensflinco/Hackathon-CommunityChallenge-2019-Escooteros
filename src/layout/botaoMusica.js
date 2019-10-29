@@ -40,7 +40,7 @@ export default class LayoutBotaoMusica extends React.Component {
   render() {
     return (
         <View style={[estilo.prototype.global().viewBotaoToggle]}>
-          <LayoutTexto style={[estilo.prototype.global().h5, estilo.prototype.global().textoCentro, {bottom: 5}]}>Música: </LayoutTexto>
+          <LayoutTexto style={[estilo.prototype.global().h5, estilo.prototype.global().textoCentro, {bottom: 5}]}>{global.linguaAtual.LayoutBotaoMusica.nome}</LayoutTexto>
           <LayoutBotao onClick={() => { this.click(this) }} style={[estilo.prototype.global().botaoToggle, this.state.cssBotaoToggle]} styleText={[estilo.prototype.global().botaoToggleText, this.state.cssBotaoToggleTxt]} >O</LayoutBotao>
         </View>
     );

@@ -9,8 +9,6 @@ import ReactDOM from 'react-dom'
 import estilo from '../style/estiloGlobal';
 import FunctionTimeline from '../function/timeline';
 import FunctionMusica from '../function/musica';
-import LayoutQuadro from '../layout/quadro';
-import LayoutTexto from '../layout/texto';
 import LayoutBarraPontos from '../layout/barraPontos';
 
 export default class ScreenJogando extends React.Component {

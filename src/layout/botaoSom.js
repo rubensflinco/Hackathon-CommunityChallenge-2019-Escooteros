@@ -37,7 +37,7 @@ export default class LayoutBotaoSom extends React.Component {
   render() {
     return (
         <View style={[estilo.prototype.global().viewBotaoToggle]}>
-          <LayoutTexto style={[estilo.prototype.global().h5, estilo.prototype.global().textoCentro, {bottom: 5}]}>Som: </LayoutTexto>
+          <LayoutTexto style={[estilo.prototype.global().h5, estilo.prototype.global().textoCentro, {bottom: 5}]}>{global.linguaAtual.LayoutBotaoSom.nome}</LayoutTexto>
           <LayoutBotao onClick={() => { this.click(this) }} style={[estilo.prototype.global().botaoToggle, this.state.cssBotaoToggle]} styleText={[estilo.prototype.global().botaoToggleText, this.state.cssBotaoToggleTxt]} >O</LayoutBotao>
         </View>
     );

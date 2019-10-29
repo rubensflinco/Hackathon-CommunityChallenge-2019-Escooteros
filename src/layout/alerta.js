@@ -16,6 +16,14 @@ export default class LayoutAlerta extends React.Component {
   }
 
   render() {
+
+    let botaoDisplayCSS = {};
+    if ( (this.props.textoBotao) || (this.props.onClick)) {
+      botaoDisplayCSS = {};
+    } else {
+      botaoDisplayCSS = {display: 'none'};
+    }
+
     return (
       <LayoutQuadro style={[estilo.prototype.global().quadroAlerta, this.props.style]}>
         <View style={estilo.prototype.global().viewAlerta}>
@@ -26,7 +34,7 @@ export default class LayoutAlerta extends React.Component {
           {this.props.children}
         
 
-        <View style={estilo.prototype.global().botaoAlerta}>
+        <View style={[estilo.prototype.global().botaoAlerta, botaoDisplayCSS]}>
           <LayoutBotao onClick={this.props.onClick}>
             {this.props.textoBotao}
           </LayoutBotao>

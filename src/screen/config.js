@@ -24,14 +24,7 @@ export default class ScreenConfig extends React.Component {
   }
 
   componentDidMount() {
-    Environment.setBackgroundImage(staticAssetURL('backgroundScreenHome.jpg'));
-    try {
-      ScreenCreditos.prototype.componentDestroy();
-      ScreenFimDoJogo.prototype.componentDestroy();
-      ScreenJogando.prototype.componentDestroy();
-    } catch (error) {
-
-    }
+    
   }
 
   render() {

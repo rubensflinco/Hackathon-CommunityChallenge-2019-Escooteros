@@ -35,7 +35,7 @@ export default class ScreenInicio extends React.Component {
     global.CreateMusica = true;
     global.BarraPontosReqOne = true;
     global.LayoutBarraPontos = "ATUALIZAR";
-    global.PanelTrasTelaAtual = "VAZIA";
+    global.PanelTrasTelaAtual = "ScreenTermos";
     global.PanelDireitaTelaAtual = "ScreenRank";
     global.PanelEsquerdaTelaAtual = "VAZIA";
 

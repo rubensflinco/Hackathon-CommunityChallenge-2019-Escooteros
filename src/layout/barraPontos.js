@@ -25,6 +25,7 @@ export default class LayoutBarraPontos extends React.Component {
   async componentDidMount() {
     global.LayoutBarraPontosJson = { pontosFeitos: '0', cssNovosPontos: { display: 'none' } };
     await this.atualizarPontos();
+    await this.setState({ carregado: true });
 
     // Codigo a baixo é responsavel por atualizar a tela e modificar a tela atual
     setInterval(async () => {

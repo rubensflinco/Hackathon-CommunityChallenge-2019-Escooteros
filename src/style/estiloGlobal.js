@@ -257,6 +257,15 @@ export default class estilo extends React.Component {
       },
       configNotLogin:{
         bottom: -200,
+      },
+      botaoTermosTXT: {
+        color:'rgba(0, 0, 0, 1)'
+      },
+      botaoTermos:{
+        top: 200,
+        height: 80,
+        width: 'auto',
+        backgroundColor: 'rgba(255, 255, 255, 1)',
       }
 
     });

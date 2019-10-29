@@ -4,6 +4,7 @@ import {
 } from 'react-360';
 import FunctionLanguage from './function/language';
 import ScreenCarregando from './screen/carregando';
+import ScreenTermos from './screen/termos';
 
 export default class PanelTras extends React.Component {
 
@@ -17,7 +18,7 @@ export default class PanelTras extends React.Component {
 
   async componentDidMount() {
     await FunctionLanguage.prototype.trocarIdioma("en-us");
-    global.PanelTrasTelaAtual = "VAZIO";
+    global.PanelTrasTelaAtual = "ScreenTermos";
     await this.setState({ carregado: true });
 
     
@@ -38,8 +39,8 @@ export default class PanelTras extends React.Component {
   render() {
     if (this.state.carregado == true) {
       switch (global.PanelTrasTelaAtual) {
-        case "ScreenRank":
-          return (<View></View>);
+        case "ScreenTermos":
+          return (<ScreenTermos />);
         default:
           return (<View></View>);
       }
