@@ -21,6 +21,7 @@ export default class Hackathon_CommunityChallenge_2019 extends React.Component {
     global.ConfigSomMuted = false;
     global.ConfigMusicaMuted = false;
     global.CreateMusica = true;
+    global.BarraPontosReqOne = true;
     FunctionLanguage.prototype.trocarIdioma("en-us");
   }
 

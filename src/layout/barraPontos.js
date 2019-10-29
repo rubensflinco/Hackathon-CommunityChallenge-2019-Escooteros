@@ -31,52 +31,54 @@ export default class LayoutBarraPontos extends React.Component {
     setInterval(async () => {
       if (global.LayoutBarraPontos == "ATUALIZAR") {
         global.LayoutBarraPontos = "ATUALIZADO";
+        await this.setState({ carregado: false });
         await this.atualizarPontos();
+        await this.setState({ carregado: true });
       }
     }, 0);
   }
-  
+
   async atualizarPontos() {
     if (global.UserLogado) {
-    await this.setState({ carregado: false });
-    let token = await ServiceLogin.prototype.getToken();
-    let response = await ServiceUser.prototype.getUnico(token);
-    let getUser = response.data;
-    await this.setState({ getUser, carregado: true });
+      await this.setState({ carregado: false });
+      let token = await ServiceLogin.prototype.getToken();
+      let response = await ServiceUser.prototype.getUnico(token);
+      let getUser = response.data;
+      await this.setState({ getUser, carregado: true });
     }
   }
 
   async ganharPontos(quantidade) {
-    if ((!global.BarraPontosReqOne) && (global.UserLogado)) {
+    console.log("global.BarraPontosReqOne",global.BarraPontosReqOne);
+    console.log("global.LayoutBarraPontosJson",global.LayoutBarraPontosJson);
+    if ((global.BarraPontosReqOne) && (global.UserLogado)) {
       global.BarraPontosReqOne = false;
       let token = await ServiceLogin.prototype.getToken();
       let response = await ServiceUser.prototype.putPonto(token, 'somar', quantidade);
       let body = response.data;
       let pontosFeitos = '+' + quantidade;
       global.LayoutBarraPontosJson = { pontosFeitos, cssNovosPontos: { color: '#7bf17b', display: 'flex' } };
-      global.LayoutBarraPontos = "ATUALIZAR";
       setTimeout(async () => {
-        global.LayoutBarraPontosJson = { pontosFeitos: '0', cssNovosPontos: { display: 'none' } };
-        global.LayoutBarraPontos = "ATUALIZAR";
         global.BarraPontosReqOne = true;
-      }, 30000);
+        global.LayoutBarraPontos = "ATUALIZAR";
+      }, 500);
     }
   }
 
   async perderPontos(quantidade) {
-    if ((!global.BarraPontosReqOne) && (global.UserLogado)) {
+    console.log("global.BarraPontosReqOne",global.BarraPontosReqOne);
+    console.log("global.LayoutBarraPontosJson",global.LayoutBarraPontosJson);
+    if ((global.BarraPontosReqOne) && (global.UserLogado)) {
       global.BarraPontosReqOne = false;
       let token = await ServiceLogin.prototype.getToken();
       let response = await ServiceUser.prototype.putPonto(token, 'subtrair', quantidade);
       let body = response.data;
       let pontosFeitos = '-' + quantidade;
       global.LayoutBarraPontosJson = { pontosFeitos, cssNovosPontos: { color: '#f15d59', display: 'flex' } };
-      global.LayoutBarraPontos = "ATUALIZAR";
       setTimeout(async () => {
-        global.LayoutBarraPontosJson = { pontosFeitos: '0', cssNovosPontos: { display: 'none' } };
-        global.LayoutBarraPontos = "ATUALIZAR";
         global.BarraPontosReqOne = true;
-      }, 30000);
+        global.LayoutBarraPontos = "ATUALIZAR";
+      }, 500);
     }
   }
 
