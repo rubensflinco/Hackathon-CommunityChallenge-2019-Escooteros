@@ -60,6 +60,14 @@
         "parouParaPedestrePassarContinuaParaIrEstacionar":{
             "texto1": "Estacionar em cima da arvore",
             "texto2": "Estacionar patinete ao lado da arvore"
+        },
+        "estacionouCerto":{
+            "texto1": "Continuar",
+            "texto2": "Finalizar jogo aqui!"
+        },
+        "pegouPatineteForaDoParque":{
+            "texto1": "Ir para ciclovia",
+            "texto2": "Ir para rua"
         }
     }
 }

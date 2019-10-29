@@ -146,14 +146,63 @@ export default class FunctionTimeline extends React.Component {
 
 
 
+        
       case "estacionouCerto":
         if (this.state.videoFinalizou === true) {
+          LayoutBarraPontos.prototype.ganharPontos('100');
+          FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaCerta.mp3');
+          return (<LayoutBotoesEscolha
+            texto1={global.linguaAtual.FunctionTimeline.estacionouCerto.texto1}
+            onClick1={() => { this.setState({ videoAtual: "pegouPatineteForaDoParque", videoFinalizou: false }) }}
+            texto2={global.linguaAtual.FunctionTimeline.estacionouCerto.texto2}
+            onClick2={() => { this.setState({ videoAtual: "creditos", videoFinalizou: false }) }} />)
+        }
+
+
+
+      case "creditos":
+        if (this.state.videoFinalizou === false) {
           LayoutBarraPontos.prototype.ganharPontos('100');
           FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaCerta.mp3');
           global.PanelFrenteTelaAtual = "ScreenCreditos";
           return (<View />);
         }
 
+
+      case "pegouPatineteForaDoParque":
+        if (this.state.videoFinalizou === true) {
+          LayoutBarraPontos.prototype.ganharPontos('500');
+          FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaCerta.mp3');
+          return (<LayoutBotoesEscolha
+            texto1={global.linguaAtual.FunctionTimeline.pegouPatineteForaDoParque.texto1}
+            onClick1={() => { this.setState({ videoAtual: "foiPraCicloviaGanhou", videoFinalizou: false }) }}
+            texto2={global.linguaAtual.FunctionTimeline.pegouPatineteForaDoParque.texto2}
+            onClick2={() => { this.setState({ videoAtual: "foiPraRuaPerdeu", videoFinalizou: false }) }} />)
+        }
+
+
+
+        case "foiPraRuaPerdeu":
+          if (this.state.videoFinalizou === true) {
+            LayoutBarraPontos.prototype.perderPontos('969');
+            FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaErrada.mp3');
+            global.PanelFrenteTelaAtual = "ScreenFimDoJogo";
+            return (<View />);
+          }
+  
+
+          
+
+      case "foiPraCicloviaGanhou":
+        if (this.state.videoFinalizou === true) {
+          LayoutBarraPontos.prototype.ganharPontos('500');
+          FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaCerta.mp3');
+          return (<LayoutBotoesEscolha
+            texto1={global.linguaAtual.FunctionTimeline.pegouPatineteForaDoParque.texto1}
+            onClick1={() => { this.setState({ videoAtual: "foiPraCicloviaGanhou", videoFinalizou: false }) }}
+            texto2={global.linguaAtual.FunctionTimeline.pegouPatineteForaDoParque.texto2}
+            onClick2={() => { this.setState({ videoAtual: "foiPraRuaPerdeu", videoFinalizou: false }) }} />)
+        }
 
 
       default:

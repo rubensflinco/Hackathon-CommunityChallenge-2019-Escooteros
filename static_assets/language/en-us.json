@@ -60,6 +60,14 @@
         "parouParaPedestrePassarContinuaParaIrEstacionar":{
             "texto1": "Park the scooter on top of the tree",
             "texto2": "Park the scooter beside the tree"
+        },
+        "estacionouCerto":{
+            "texto1": "Continue",
+            "texto2": "End game here!"
+        },
+        "pegouPatineteForaDoParque":{
+            "texto1": "Go to bike path",
+            "texto2": "Go to street"
         }
     }
 }
