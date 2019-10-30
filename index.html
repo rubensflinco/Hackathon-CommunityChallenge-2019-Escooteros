@@ -9,7 +9,8 @@
   </style>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <meta content="escooteros, scooter, game" name="keywords">
-  <meta content="Escooteros is a game to teach you how to ride a scooter in virtual reality using your mobile phone." name="description">
+  <meta content="Escooteros is a game to teach you how to ride a scooter in virtual reality using your mobile phone."
+    name="description">
   <meta content="#f4d80f" name="theme-color">
   <meta content="#f4d80f" name="msapplication-navbutton-color">
   <meta content="#f4d80f" name="apple-mobile-web-app-status-bar-style">
@@ -41,10 +42,10 @@
     );
   </script>
   <script>
-    if('serviceWorker' in navigator) {
+    if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('static_assets/serviceWorker.js')
-        .then(function() {
-              console.log('Service Worker Registered');
+        .then(function () {
+          console.log('Service Worker Registered');
         });
     }
     window.addEventListener('appinstalled', (evt) => {
@@ -57,6 +58,23 @@
       // Update UI notify the user they can add to home screen
       showInstallPromotion();
     });
+
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '495647514322199',
+        xfbml: true,
+        version: 'v5.0'
+      });
+      FB.AppEvents.logPageView();
+    };
+
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
   </script>
 </body>
 

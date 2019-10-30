@@ -1,6 +1,6 @@
 {
   "name": "Hackathon_CommunityChallenge_2019",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "private": true,
   "scripts": {
     "start": "bash escooteros-cli.sh start-or-install",

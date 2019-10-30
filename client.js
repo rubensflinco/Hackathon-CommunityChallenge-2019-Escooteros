@@ -88,29 +88,19 @@ class fbAuth extends Module {
   }
 
   iniciar(callBack) {
-    // Import do Facebook SDK
-    (function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) { return; }
-      js = d.createElement(s); js.id = id;
-      js.src = "https://connect.facebook.net/pt_BR/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-
-    window.fbAsyncInit = () => {
-      // Configurações iniciais do Facebook SDK
-      window.FB.init({
+    window.fbAsyncInit = function () {
+      FB.init({
         appId: '495647514322199',
         xfbml: true,
-        version: 'v4.0'
+        version: 'v5.0'
       });
-      window.FB.AppEvents.logPageView();
+      FB.AppEvents.logPageView();
 
-      window.FB.getLoginStatus((respostaLoginStatus) => {
+      FB.getLoginStatus((respostaLoginStatus) => {
         if (respostaLoginStatus.status == 'connected') {
           // Login feito, pegar informações na API e tratar
           let userFbID = respostaLoginStatus.authResponse.userID;
-          window.FB.api(userFbID, (respostaAPI) => { this.tratarRespostaAPI(callBack, respostaAPI) });
+          FB.api(userFbID, (respostaAPI) => { this.tratarRespostaAPI(callBack, respostaAPI) });
         } else {
           // A pessoa não está conectada à sua página da Web ou não podemos saber. 
           this._ctx.invokeCallback(callBack, [false]);
@@ -118,14 +108,24 @@ class fbAuth extends Module {
       });
 
     };
+
+
+    // Import do Facebook SDK
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
   }
 
   autenticar(callBack) {
-    window.FB.login((respostaLogin) => {
+    FB.login((respostaLogin) => {
       if (respostaLogin.status === 'connected') {
         // Login feito, pegar informações na API e tratar
         let userFbID = respostaLogin.authResponse.userID;
-        window.FB.api(userFbID, (respostaAPI) => { this.tratarRespostaAPI(callBack, respostaAPI) });
+        FB.api(userFbID, (respostaAPI) => { this.tratarRespostaAPI(callBack, respostaAPI) });
       } else {
         // A pessoa não está conectada à sua página da Web ou não podemos saber. 
         this._ctx.invokeCallback(callBack, [false, respostaLogin]);
@@ -134,7 +134,7 @@ class fbAuth extends Module {
   }
 
   sair() {
-    window.FB.logout(function(response) {
+    FB.logout(function (response) {
       // user is now logged out
       location.reload();
     });
