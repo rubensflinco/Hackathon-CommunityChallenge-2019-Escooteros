@@ -29,18 +29,14 @@ export default class FunctionTimeline extends React.Component {
   }
 
   playVideoAtual(videoAtual, element) {
-    if(this.state.videoAtual == "creditos"){
-      let This = this;
-      this.setState({ videoFinalizou: true, videoRodando: videoAtual });
-    }else
+    let shelf = this;
     if (this.state.videoAtual !== this.state.videoRodando) {
-      let This = this;
       this.setState({ videoFinalizou: false, videoRodando: videoAtual });
       FunctionVideo.prototype.play("videos/" + videoAtual + ".mp4", "2D", 0, global.ConfigSomMuted);
 
       element.addListener('onVideoStatusChanged', (event) => {
         if (event.status == "finished") {
-          This.setState({ videoFinalizou: true })
+          shelf.setState({ videoFinalizou: true })
         }
       });
     }
@@ -50,7 +46,7 @@ export default class FunctionTimeline extends React.Component {
     this.playVideoAtual(this.state.videoAtual, video);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.playVideoAtual(this.state.videoAtual, video);
   }
 
@@ -73,9 +69,9 @@ export default class FunctionTimeline extends React.Component {
           LayoutBarraPontos.prototype.perderPontos('10');
           FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaErrada.mp3');
           global.PanelFrenteTelaAtual = "ScreenFimDoJogo";
-          return (<View />);
+          return (<View></View>);
         }
-        
+
 
 
       case "patineteDesbloqueado":
@@ -96,7 +92,7 @@ export default class FunctionTimeline extends React.Component {
           LayoutBarraPontos.prototype.perderPontos('30');
           FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaErrada.mp3');
           global.PanelFrenteTelaAtual = "ScreenFimDoJogo";
-          return (<View />);
+          return (<View></View>);
         }
 
 
@@ -119,12 +115,12 @@ export default class FunctionTimeline extends React.Component {
           LayoutBarraPontos.prototype.perderPontos('500');
           FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaErrada.mp3');
           global.PanelFrenteTelaAtual = "ScreenFimDoJogo";
-          return (<View />);
+          return (<View></View>);
         }
 
 
 
-        
+
       case "parouParaPedestrePassarContinuaParaIrEstacionar":
         if (this.state.videoFinalizou === true) {
           LayoutBarraPontos.prototype.ganharPontos('100');
@@ -145,12 +141,12 @@ export default class FunctionTimeline extends React.Component {
           LayoutBarraPontos.prototype.perderPontos('666');
           FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaErrada.mp3');
           global.PanelFrenteTelaAtual = "ScreenFimDoJogo";
-          return (<View />);
+          return (<View></View>);
         }
 
 
 
-        
+
       case "estacionouCerto":
         if (this.state.videoFinalizou === true) {
           LayoutBarraPontos.prototype.ganharPontos('100');
@@ -159,18 +155,9 @@ export default class FunctionTimeline extends React.Component {
             texto1={global.linguaAtual.FunctionTimeline.estacionouCerto.texto1}
             onClick1={() => { this.setState({ videoAtual: "pegouPatineteForaDoParque", videoFinalizou: false }) }}
             texto2={global.linguaAtual.FunctionTimeline.estacionouCerto.texto2}
-            onClick2={() => { this.setState({ videoAtual: "creditos", videoFinalizou: false }) }} />)
+            onClick2={() => { global.PanelFrenteTelaAtual = "ScreenCreditos" }} />)
         }
 
-
-
-      case "creditos":
-        if (this.state.videoFinalizou === true) {
-          LayoutBarraPontos.prototype.ganharPontos('100');
-          FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaCerta.mp3');
-          global.PanelFrenteTelaAtual = "ScreenCreditos";
-          return (<View />);
-        }
 
 
       case "pegouPatineteForaDoParque":
@@ -179,38 +166,81 @@ export default class FunctionTimeline extends React.Component {
           FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaCerta.mp3');
           return (<LayoutBotoesEscolha
             texto1={global.linguaAtual.FunctionTimeline.pegouPatineteForaDoParque.texto1}
-            onClick1={() => { this.setState({ videoAtual: "foiPraCicloviaGanhou", videoFinalizou: false }) }}
+            onClick1={() => { this.setState({ videoAtual: "foiPraCiclovia", videoFinalizou: false }) }}
             texto2={global.linguaAtual.FunctionTimeline.pegouPatineteForaDoParque.texto2}
             onClick2={() => { this.setState({ videoAtual: "foiPraRuaPerdeu", videoFinalizou: false }) }} />)
         }
 
 
 
-        case "foiPraRuaPerdeu":
-          if (this.state.videoFinalizou === true) {
-            LayoutBarraPontos.prototype.perderPontos('969');
-            FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaErrada.mp3');
-            global.PanelFrenteTelaAtual = "ScreenFimDoJogo";
-            return (<View />);
-          }
-  
 
-          
-
-      case "foiPraCicloviaGanhou":
+      case "foiPraRuaPerdeu":
         if (this.state.videoFinalizou === true) {
-          LayoutBarraPontos.prototype.ganharPontos('500');
+          LayoutBarraPontos.prototype.perderPontos('969');
+          FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaErrada.mp3');
+          global.PanelFrenteTelaAtual = "ScreenFimDoJogo";
+          return (<View></View>);
+        }
+
+
+
+
+      case "foiPraCiclovia":
+        if (this.state.videoFinalizou === true) {
+          let shelf = this;
+          setTimeout(()=>{ shelf.setState({ videoAtual: "chegouNoPredio", videoFinalizou: false }); }, 500);
+          return (<View></View>)
+        }
+
+
+
+
+      case "chegouNoPredio":
+        if (this.state.videoFinalizou === true) {
+          LayoutBarraPontos.prototype.ganharPontos('800');
           FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaCerta.mp3');
           return (<LayoutBotoesEscolha
-            texto1={global.linguaAtual.FunctionTimeline.pegouPatineteForaDoParque.texto1}
-            onClick1={() => { this.setState({ videoAtual: "foiPraCicloviaGanhou", videoFinalizou: false }) }}
-            texto2={global.linguaAtual.FunctionTimeline.pegouPatineteForaDoParque.texto2}
-            onClick2={() => { this.setState({ videoAtual: "foiPraRuaPerdeu", videoFinalizou: false }) }} />)
+            texto1={global.linguaAtual.FunctionTimeline.chegouNoPredio.texto1}
+            onClick1={() => { this.setState({ videoAtual: "subindoDeElevador", videoFinalizou: false }) }}
+            texto2={global.linguaAtual.FunctionTimeline.chegouNoPredio.texto2}
+            onClick2={() => { this.setState({ videoAtual: "subindoDeEscada", videoFinalizou: false }) }} />)
+        }
+
+
+
+
+      case "subindoDeElevador":
+        if (this.state.videoFinalizou === true) {
+          LayoutBarraPontos.prototype.ganharPontos('30');
+          FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaCerta.mp3');
+          this.setState({ videoAtual: "recepcaoParabens", videoFinalizou: false });
+          return (<View></View>)
+        }
+
+
+
+      case "subindoDeEscada":
+        if (this.state.videoFinalizou === true) {
+          LayoutBarraPontos.prototype.ganharPontos('300');
+          FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaCerta.mp3');
+          let shelf = this;
+          setTimeout(()=>{ shelf.setState({ videoAtual: "recepcaoParabens", videoFinalizou: false }); }, 500);
+          return (<View></View>)
+        }
+
+
+
+      case "recepcaoParabens":
+        if (this.state.videoFinalizou === true) {
+          LayoutBarraPontos.prototype.ganharPontos('30000');
+          FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaCerta.mp3');
+          global.PanelFrenteTelaAtual = "ScreenCreditos";
+          return (<View></View>)
         }
 
 
       default:
-        return (<View />);
+        return (<View></View>);
     }
   }
 

@@ -99,19 +99,18 @@ class fbAuth extends Module {
 
     window.fbAsyncInit = () => {
       // Configurações iniciais do Facebook SDK
-      FB.init({
+      window.FB.init({
         appId: '495647514322199',
-        cookie: false,
         xfbml: true,
         version: 'v4.0'
       });
-      FB.AppEvents.logPageView();
+      window.FB.AppEvents.logPageView();
 
-      FB.getLoginStatus((respostaLoginStatus) => {
+      window.FB.getLoginStatus((respostaLoginStatus) => {
         if (respostaLoginStatus.status == 'connected') {
           // Login feito, pegar informações na API e tratar
           let userFbID = respostaLoginStatus.authResponse.userID;
-          FB.api(userFbID, (respostaAPI) => { this.tratarRespostaAPI(callBack, respostaAPI) });
+          window.FB.api(userFbID, (respostaAPI) => { this.tratarRespostaAPI(callBack, respostaAPI) });
         } else {
           // A pessoa não está conectada à sua página da Web ou não podemos saber. 
           this._ctx.invokeCallback(callBack, [false]);
@@ -122,11 +121,11 @@ class fbAuth extends Module {
   }
 
   autenticar(callBack) {
-    FB.login((respostaLogin) => {
+    window.FB.login((respostaLogin) => {
       if (respostaLogin.status === 'connected') {
         // Login feito, pegar informações na API e tratar
         let userFbID = respostaLogin.authResponse.userID;
-        FB.api(userFbID, (respostaAPI) => { this.tratarRespostaAPI(callBack, respostaAPI) });
+        window.FB.api(userFbID, (respostaAPI) => { this.tratarRespostaAPI(callBack, respostaAPI) });
       } else {
         // A pessoa não está conectada à sua página da Web ou não podemos saber. 
         this._ctx.invokeCallback(callBack, [false, respostaLogin]);
@@ -135,7 +134,7 @@ class fbAuth extends Module {
   }
 
   sair() {
-    FB.logout(function(response) {
+    window.FB.logout(function(response) {
       // user is now logged out
       location.reload();
     });

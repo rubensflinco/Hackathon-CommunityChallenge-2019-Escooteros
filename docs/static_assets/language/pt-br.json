@@ -68,6 +68,10 @@
         "pegouPatineteForaDoParque":{
             "texto1": "Ir para ciclovia",
             "texto2": "Ir para rua"
+        },
+        "chegouNoPredio":{
+            "texto1": "Subir de elevador",
+            "texto2": "Subir de escada"
         }
     }
 }

@@ -68,6 +68,10 @@
         "pegouPatineteForaDoParque":{
             "texto1": "Go to bike path",
             "texto2": "Go to street"
+        },
+        "chegouNoPredio":{
+            "texto1": "Lift up",
+            "texto2": "Climbing stairs"
         }
     }
 }

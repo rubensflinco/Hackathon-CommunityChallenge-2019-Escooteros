@@ -13,6 +13,7 @@ import ScreenCreditos from './creditos';
 import ScreenFimDoJogo from './fimDoJogo';
 import ScreenJogando from './jogando';
 import FunctionMusica from '../function/musica';
+import config from '../../config';
 
 export default class ScreenInicio extends React.Component {
 
@@ -52,6 +53,7 @@ export default class ScreenInicio extends React.Component {
     return (
       <LayoutQuadro style={[estilo.prototype.global().fundoTransparente, estilo.prototype.global().transformeQuadrado]}>
         <LayoutTexto style={estilo.prototype.global().h1}>{global.linguaAtual.ScreenInicio.boasVindas}</LayoutTexto>
+        <LayoutTexto style={estilo.prototype.global().h6}>V{config.versao}</LayoutTexto>
         <LayoutBotao onClick={this.clickJogar}>{global.linguaAtual.ScreenInicio.botaoJogar}</LayoutBotao>
         <Image source={{ uri: staticAssetURL('logotipo.png') }} style={estilo.prototype.global().logotipo} />
       </LayoutQuadro>
