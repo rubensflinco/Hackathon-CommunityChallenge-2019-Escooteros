@@ -7,6 +7,7 @@ import config from '../../config';
 import ServiceUser from './user';
 import LayoutBarraUsuario from '../layout/barraUsuario';
 const SessionStorage = NativeModules.SessionStorage;
+const facebook = NativeModules.fbAuth;
 
 
 
@@ -49,24 +50,23 @@ export default class ServiceLogin extends React.Component {
   }
 
   async verificarLogin() {
-    SessionStorage.get("token", async (token) => {
-      let response = await ServiceUser.prototype.getUnico(token);
-      if (String(token) == String(response.data.token)) {
-        global.UserLogado = true;
-        LayoutBarraUsuario.prototype.render();
-        global.PanelFrenteTelaAtual = "ATUALIZAR";
-        global.PanelTrasTelaAtual = "ATUALIZAR";
-        global.PanelDireitaTelaAtual = "ATUALIZAR";
-        global.PanelEsquerdaTelaAtual = "ATUALIZAR";
-      } else {
-        global.UserLogado = false;
-        LayoutBarraUsuario.prototype.render();
-        global.PanelFrenteTelaAtual = "ATUALIZAR";
-        global.PanelTrasTelaAtual = "ATUALIZAR";
-        global.PanelDireitaTelaAtual = "ATUALIZAR";
-        global.PanelEsquerdaTelaAtual = "ATUALIZAR";
-      }
-    });
+    let token = await this.getToken();
+    let response = await ServiceUser.prototype.getUnico(token);
+    if (String(token) == String(response.data.token)) {
+      global.UserLogado = true;
+      LayoutBarraUsuario.prototype.render();
+      global.PanelFrenteTelaAtual = "ATUALIZAR";
+      global.PanelTrasTelaAtual = "ATUALIZAR";
+      global.PanelDireitaTelaAtual = "ATUALIZAR";
+      global.PanelEsquerdaTelaAtual = "ATUALIZAR";
+    } else {
+      global.UserLogado = false;
+      LayoutBarraUsuario.prototype.render();
+      global.PanelFrenteTelaAtual = "ATUALIZAR";
+      global.PanelTrasTelaAtual = "ATUALIZAR";
+      global.PanelDireitaTelaAtual = "ATUALIZAR";
+      global.PanelEsquerdaTelaAtual = "ATUALIZAR";
+    }
   }
 
   sairDaConta() {
@@ -77,6 +77,7 @@ export default class ServiceLogin extends React.Component {
     global.PanelTrasTelaAtual = "ATUALIZAR";
     global.PanelDireitaTelaAtual = "ATUALIZAR";
     global.PanelEsquerdaTelaAtual = "ATUALIZAR";
+    facebook.sair();
   }
 
   salvarToken(token) {
@@ -84,9 +85,13 @@ export default class ServiceLogin extends React.Component {
   }
 
   async getToken() {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       SessionStorage.get("token", async (token) => {
-        resolve(token);
+        if (token) {
+          resolve(token);
+        } else {
+          reject(token);
+        }
       });
     });
   }

@@ -29,6 +29,10 @@ export default class FunctionTimeline extends React.Component {
   }
 
   playVideoAtual(videoAtual, element) {
+    if(this.state.videoAtual == "creditos"){
+      let This = this;
+      this.setState({ videoFinalizou: true, videoRodando: videoAtual });
+    }else
     if (this.state.videoAtual !== this.state.videoRodando) {
       let This = this;
       this.setState({ videoFinalizou: false, videoRodando: videoAtual });
@@ -161,7 +165,7 @@ export default class FunctionTimeline extends React.Component {
 
 
       case "creditos":
-        if (this.state.videoFinalizou === false) {
+        if (this.state.videoFinalizou === true) {
           LayoutBarraPontos.prototype.ganharPontos('100');
           FunctionMusica.prototype.efeitoSonoroRapido('audios/ScreenJogando/respostaCerta.mp3');
           global.PanelFrenteTelaAtual = "ScreenCreditos";

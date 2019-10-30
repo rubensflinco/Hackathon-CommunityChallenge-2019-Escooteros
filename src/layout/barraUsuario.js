@@ -62,11 +62,10 @@ export default class LayoutBarraUsuario extends React.Component {
 
   async getUser() {
     if (global.UserLogado) {
-      await this.setState({ carregado: false });
       let token = await ServiceLogin.prototype.getToken();
       let response = await ServiceUser.prototype.getUnico(token);
       let getUser = response.data;
-      await this.setState({ getUser, carregado: true });
+      await this.setState({ getUser });
     }
   }
 

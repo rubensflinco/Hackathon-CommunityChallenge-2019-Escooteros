@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  NativeModules,
   AppRegistry,
   View
 } from 'react-360';
@@ -9,6 +10,7 @@ import PanelTras from './src/PanelTras';
 import PanelDireita from './src/PanelDireita';
 import FunctionLanguage from './src/function/language';
 import ServiceLogin from './src/service/login';
+const facebook = NativeModules.fbAuth;
 
 export default class Hackathon_CommunityChallenge_2019 extends React.Component {
 
@@ -27,6 +29,21 @@ export default class Hackathon_CommunityChallenge_2019 extends React.Component {
 
   componentWillUpdate(){
     ServiceLogin.prototype.verificarLogin();
+  }
+
+  async componentDidMount(){
+    await facebook.iniciar(async (sucesso, data) => {
+      if (sucesso) {
+        // Usuario já está logado
+        let response = await ServiceLogin.prototype.postAutenticar(data);
+        console.log("Usuario já logado", data, response);
+        global.LayoutBarraUsuario = "ATUALIZAR";
+        global.PanelFrenteTelaAtual = "ATUALIZAR";
+        global.PanelTrasTelaAtual = "ATUALIZAR";
+        global.PanelDireitaTelaAtual = "ATUALIZAR";
+        global.PanelEsquerdaTelaAtual = "ATUALIZAR";
+      }
+    });
   }
 
 

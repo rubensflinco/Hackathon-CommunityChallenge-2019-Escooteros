@@ -10,7 +10,6 @@ import {
 import estilo from '../style/estiloGlobal';
 import LayoutTexto from './texto';
 import ServiceLogin from '../service/login';
-import LayoutBarraUsuario from './barraUsuario';
 const facebook = NativeModules.fbAuth;
 
 
@@ -39,37 +38,25 @@ export default class LayoutBotaoFacebook extends React.Component {
   }
 
   async clickLogarFace() {
-    await facebook.iniciar(async (sucesso, data) => {
+    // Usuario não está logado
+    facebook.autenticar(async (sucesso, data) => {
       if (sucesso) {
-        // Usuario já está logado
         let response = await ServiceLogin.prototype.postAutenticar(data);
+        console.log("Agora o usuario está logado", data, response);
         global.LayoutBarraUsuario = "ATUALIZAR";
         global.PanelFrenteTelaAtual = "ATUALIZAR";
         global.PanelTrasTelaAtual = "ATUALIZAR";
         global.PanelDireitaTelaAtual = "ATUALIZAR";
         global.PanelEsquerdaTelaAtual = "ATUALIZAR";
       } else {
-        // Usuario não está logado
-        facebook.autenticar(async (sucesso, data) => {
-          if (sucesso) {
-            let response = await ServiceLogin.prototype.postAutenticar(data);
-            global.LayoutBarraUsuario = "ATUALIZAR";
-            global.PanelFrenteTelaAtual = "ATUALIZAR";
-            global.PanelTrasTelaAtual = "ATUALIZAR";
-            global.PanelDireitaTelaAtual = "ATUALIZAR";
-            global.PanelEsquerdaTelaAtual = "ATUALIZAR";
-          } else {
-            console.log("Deu erro", data)
-          }
-        });
+        console.error("Deu erro: ", data);
+        global.LayoutBarraUsuario = "ATUALIZAR";
+        global.PanelFrenteTelaAtual = "ATUALIZAR";
+        global.PanelTrasTelaAtual = "ATUALIZAR";
+        global.PanelDireitaTelaAtual = "ATUALIZAR";
+        global.PanelEsquerdaTelaAtual = "ATUALIZAR";
       }
     });
-
-    global.LayoutBarraUsuario = "ATUALIZAR";
-    global.PanelFrenteTelaAtual = "ATUALIZAR";
-    global.PanelTrasTelaAtual = "ATUALIZAR";
-    global.PanelDireitaTelaAtual = "ATUALIZAR";
-    global.PanelEsquerdaTelaAtual = "ATUALIZAR";
   }
 
   render() {

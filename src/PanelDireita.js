@@ -45,8 +45,6 @@ export default class PanelDireita extends React.Component {
           return (<ScreenRank></ScreenRank>);
         case "ScreenConfig":
           return (<ScreenConfig></ScreenConfig>);
-        case "ScreenPerfil":
-          return (<ScreenPerfil></ScreenPerfil>);
 
         default:
           return (<View></View>);
