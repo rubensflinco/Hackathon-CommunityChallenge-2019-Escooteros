@@ -50,10 +50,10 @@ Próximos Passos
 
 # Demo
 Para acessar a demo basta acessar:
-https://jotinhabr.github.io/Hackathon-CommunityChallenge-2019-Escooteros/
+https://rubensflinco.github.io/Hackathon-CommunityChallenge-2019-Escooteros/
 
 # Install
-* git clone https://github.com/JotinhaBR/Hackathon-CommunityChallenge-2019
+* git clone https://github.com/rubensflinco/Hackathon-CommunityChallenge-2019
 * cd Hackathon-CommunityChallenge-2019/
 * npm install
 * npm start
