@@ -61,7 +61,7 @@ https://rubensflinco.github.io/Hackathon-CommunityChallenge-2019-Escooteros/
 
 # Equipe Escooteros:
 <br/>
-<a href="https://github.com/JotinhaBR">Rubens Flinco</a>, <a href="https://github.com/marcelommo">Marcelo Miranda</a>, <a href="https://github.com/bikemessenger">Daniel Freitas</a>, <a href="https://github.com/CataMZ">Catarina Manzieri</a>, <a href="https://github.com/lrdRodrigues">Rogerio Rodrigues</a>.
+<a href="https://github.com/rubensflinco">Rubens Flinco</a>, <a href="https://github.com/marcelommo">Marcelo Miranda</a>, <a href="https://github.com/bikemessenger">Daniel Freitas</a>, <a href="https://github.com/CataMZ">Catarina Manzieri</a>, <a href="https://github.com/lrdRodrigues">Rogerio Rodrigues</a>.
 <br/><br/>
 <center><img src="https://i.imgur.com/BNXUoHH.jpg" width="100%"></center>
 
